@@ -21,38 +21,32 @@ export default {
 	},
 	methods: {
 		loadKeeps() {
-			keepService.query()
-				.then((keeps) => {
-					this.keeps = keeps
-					console.log(this.keeps);
-				});
-			
+			keepService.query().then((keeps) => {
+				this.keeps = keeps;
+				console.log(this.keeps);
+			});
 		},
 		updateTxt(txt, id) {
-			keepService.getById(id)
-				.then(note =>  {
-					note.info.txt = txt;
-					keepService.saveNote(note)
-				})
+			keepService.getById(id).then((note) => {
+				note.info.txt = txt;
+				keepService.saveNote(note);
+			});
 		},
 		updateColor(color, id) {
-			keepService.getById(id)
-				.then(note =>  {
-					note.info.style.backgroundColor = color;
-					keepService.saveNote(note)
-				})
+			keepService.getById(id).then((note) => {
+				note.info.style.backgroundColor = color;
+				keepService.saveNote(note);
+			});
 		},
 		removeNote(id) {
-			keepService.removeNote(id)
-                .then(this.loadKeeps)
+			keepService.removeNote(id).then(this.loadKeeps);
 		},
 		addTodo(todo, id) {
-			keepService.getById(id)
-				.then(note =>  {
-					note.info.todos.push({txt: todo, doneAt: null})
-					keepService.saveNote(note)
-				})
-		}
+			keepService.getById(id).then((note) => {
+				note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
+				keepService.saveNote(note);
+			});
+		},
 	},
 	created() {
 		this.loadKeeps();
@@ -61,6 +55,6 @@ export default {
 		noteTxt,
 		noteImg,
 		noteVid,
-		noteTodos
+		noteTodos,
 	},
 };
