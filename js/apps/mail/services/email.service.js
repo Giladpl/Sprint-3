@@ -19,8 +19,8 @@ const gEmails = [
 	{
 		id: storageService._makeId(),
 		sender: 'Avocode ',
-		subject: `Your Avocode free trial is over', body: 'The free trial for gilad․peltz's team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
-		body: 'Pick up!',
+		subject: `Your Avocode free trial is over`,
+		body: `The free trial has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
 		isRead: false,
 		sentAt: 1551133930594,
 	},
@@ -45,8 +45,7 @@ const gEmails = [
 	{
 		id: storageService._makeId(),
 		sender: `Twitter `,
-		subject: `"California’s coronavirus strain looks increasingly dangerous" Moment
-    `,
+		subject: `"California’s coronavirus strain looks increasingly dangerous"`,
 		body: `
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim praesentium sequi nostrum possimus! Consectetur ad dolores saepe asperiores perferendis! Architecto porro minus suscipit commodi, provident nihil. Rem dignissimos veritatis officia!
     Voluptatem blanditiis officiis ducimus minima placeat et minus? Ad vel, dicta recusandae, possimus laboriosam eos architecto eum similique facere ab, vitae unde ipsa tempore porro officia nemo vero minus dignissimos!`,

@@ -1,0 +1,12 @@
+.sender-subject-container{
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  line-height: 1.5;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.email-body{
+  height: 150px;
+}

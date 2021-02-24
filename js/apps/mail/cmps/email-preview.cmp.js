@@ -1,10 +1,17 @@
 export default {
-    props:['email'],
-    template:`
+	props: ['email'],
+	template: `
         <section class="email-preview">
-            <h4>{{email.sender}}</h4>
-            <p>{{email.subject}}</p>
-            <p>{{email.sentAt}}</p>
+            <div class="sender-subject-container-preview">
+                <h4 class="sender">{{email.sender}}</h4>
+                <p class="subject">{{email.subject}}</p>
+            </div>
+            <p class="sentAt">{{sentAtConversion}}</p>
         </section>
         `,
-}
+	computed: {
+		sentAtConversion() {
+			return new Date().toDateString(this.email.sentAt);
+		},
+	},
+};

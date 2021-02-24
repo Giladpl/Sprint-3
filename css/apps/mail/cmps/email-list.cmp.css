@@ -1,0 +1,24 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+section .email-preview {
+	background-color: #ECF1F7;
+  border: rgb(44, 44, 44) 1px solid;
+}
+
+.email-list {
+  height: 70vh;
+  background-color: #A9E2F8;
+}
+
+/* HELPERS */
+.removeLinkStyle {
+	text-decoration: none;
+	color: black;
+}

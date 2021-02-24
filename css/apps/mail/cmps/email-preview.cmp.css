@@ -1,0 +1,28 @@
+h4,
+p {
+	margin: 0;
+	padding: 0;
+	height: 30px;
+	line-height: 30px;
+}
+
+.email-preview {
+	display: flex;
+	height: auto;
+}
+
+.sender-subject-container-preview {
+	display: flex;
+	min-width: 500px;
+}
+
+.sender {
+	margin-left: 10px;
+	min-width: 150px;
+}
+
+.sentAt {
+  margin-right: 10px;
+	position: absolute;
+	right: 0;
+}
