@@ -1,18 +1,11 @@
 export default {
+  props: ['info'],
   template: `
-        <section>
-           <img :src="info.src">
+        <section class="noteImg">
+              <p>{{info.title}}</p>
         </section>
         `,
-  props: ["info"],
-  data() {
-    return {
-
-    };
-  },
-  methods: {
-
-  },
-  computed: {
+  created() {
+      
   }
 };
