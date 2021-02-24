@@ -3,7 +3,7 @@ import noteTodoList from './note-todo-list.cmp.js';
 export default {
 	props: ['info', 'id'],
 	template: `
-          <section class="noteTodos" :style="{background: userColor}">
+          <section class="noteTodos note-card" :style="{background: userColor}">
                 <h2>Don't forget:</h2>
                 <ul class="todos-list">
                     <li v-for="(todo, idx) in todos">
@@ -11,12 +11,14 @@ export default {
                     </li>
                 </ul>
                 <form @submit.prevent="addTodo">
-                    <input type="text" placeholder="I need to do.." v-model="newTodo">
-                    <button class="add-btn">Add</button>
+                    <input class="input-todo" type="text" placeholder="I need to do.." v-model="newTodo">
+                    <button class="add-btn"><img src="../../../../img/add.png" width="20"/></button>
                 </form>
-                <button>pin or not</button>
-                <button><input type="color" @change="changeColor" v-model="userColor"></button>
-                <button @click="removeNote">remove</button>
+				<div className="note-icons">
+					<button class="pin-btn"><img src="../../../../img/pin.png" width="20"/></button>
+					<button class="color-btn"><input class="input-color" type="color" @change="changeColor" v-model="userColor"></button>
+					<button class="trash-btn" @click="removeNote"><img src="../../../../img/trash.png" width="20"/></button>
+				</div>
           </section>
           `,
 	data() {

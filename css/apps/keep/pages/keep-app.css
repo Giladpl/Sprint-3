@@ -1,0 +1,97 @@
+.keeps-app {
+	background-color: #daebf2;
+	padding: 50px;
+	display: grid;
+	gap: 15px;
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+	/* grid-auto-flow: dense; */
+	align-content: center;
+	justify-items: center;
+}
+
+.note-card {
+	min-height: 300px;
+	max-width: 320px;
+	padding: 25px;
+	text-align: center;
+	box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.66);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-bottom: 5px;
+	transition: all 1s ease-in-out;
+}
+
+.input-color {
+	opacity: 0;
+	z-index: -1;
+	cursor: pointer;
+	height: 30px;
+}
+
+.note-icons {
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	opacity: 0;
+	transition: opacity 0.9s;
+}
+
+.trash-btn,
+.pin-btn,
+.color-btn,
+.add-btn {
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.6;
+	border: none;
+	background-color: inherit;
+}
+
+.color-btn {
+	background-image: url("../../../../img/color.png");
+	/* font-size: 35px; */
+}
+
+.pin-btn:hover,
+.color-btn:hover,
+.trash-btn:hover,
+.add-btn:hover {
+	opacity: 1;
+}
+
+.note-vid {
+	padding: 5px;
+	min-height: 400px;
+}
+
+.note-vid iframe {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.keeps-app textarea {
+	border: none;
+	font-size: 20px;
+	text-align: center;
+}
+
+.keeps-app textarea:focus {
+	outline: 0;
+}
+
+.note-img .img-src {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+.input-todo {
+	border: 1px solid gray;
+	outline: none;
+	background-color: inherit;
+	color: black;
+	font-weight: 500;
+	padding: 8px;
+}

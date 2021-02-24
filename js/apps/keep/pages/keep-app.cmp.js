@@ -8,7 +8,6 @@ import { storageService } from '../../../services/async-storage.service.js';
 export default {
 	template: `
         <section class="keeps-app" >
-			<h1>hi</h1>
 			<div v-for="keep in keeps">
 				<component :is="keep.type" :id="keep.id" :info="keep.info" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo" @setTitle="updateTitle"></component>
 			</div>
