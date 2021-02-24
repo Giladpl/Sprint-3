@@ -4,9 +4,9 @@ export default {
           <section class="noteTxt" :style="{background: userColor}">
                 <textarea v-if="userTxt" :style="{background: userColor}" name="txt" cols="22" rows="3" @change="changeTxt" v-model="userTxt">{{userTxt}}</textarea>
                 <div className="note-icons">
-                <button>pin or not</button>
-                <button><input type="color" @change="changeColor" v-model="userColor"></button>
-                <button @click="removeNote">remove</button>
+                    <button>pin or not</button>
+                    <button><input type="color" @change="changeColor" v-model="userColor"></button>
+                    <button @click="removeNote">remove</button>
                 </div>
           </section>
           `,
