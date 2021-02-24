@@ -1,6 +1,6 @@
 'use-strict';
 
-const notes = [
+const keeps = [
 	{
 		type: 'NoteTxt',
 		isPinned: true,
@@ -36,3 +36,4 @@ const notes = [
 		},
 	},
 ];
+
