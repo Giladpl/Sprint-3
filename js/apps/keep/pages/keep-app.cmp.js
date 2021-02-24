@@ -10,7 +10,7 @@ export default {
         <section class="keeps-app" >
 			<h1>hi</h1>
 			<div v-for="keep in keeps">
-				<component :is="keep.type" :id="keep.id" :info="keep.info" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo"></component>
+				<component :is="keep.type" :id="keep.id" :info="keep.info" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo" @setTitle="updateTitle"></component>
 			</div>
         </section>
     `,
@@ -50,6 +50,13 @@ export default {
 			keepService.getById(id)
 				.then(note =>  {
 					note.info.todos.push({txt: todo, doneAt: null})
+					keepService.saveNote(note)
+				})
+		},
+		updateTitle(title, id) {
+			keepService.getById(id)
+				.then(note =>  {
+					note.info.title = title;
 					keepService.saveNote(note)
 				})
 		}

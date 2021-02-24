@@ -16,7 +16,30 @@ let gKeeps = [
 		info: {
 			txt: 'Fullstack Me Baby!',
 			style: {
-				backgroundColor: '#262322',
+				backgroundColor: '#a9e2f8',
+			},
+		},
+	},
+	{
+		id: storageService._makeId(),
+		type: 'noteVid',
+		isPinned: false,
+		info: {
+			url: 'https://www.youtube.com/embed/2Vv-BfVoq4g',
+			title: 'Ed Sheeran - Perfect',
+			style: {
+				backgroundColor: '#a9f8b4',
+			},
+		},
+	},
+	{
+		id: storageService._makeId(),
+		type: 'noteTxt',
+		isPinned: false,
+		info: {
+			txt: 'Sprint 3 is done!',
+			style: {
+				backgroundColor: '#a9c5f8',
 			},
 		},
 	},
@@ -25,10 +48,21 @@ let gKeeps = [
 		type: 'noteImg',
 		isPinned: false,
 		info: {
-			url: 'http://some-img/me',
+			url: 'http://coding-academy.org/books-photos/20.jpg',
 			title: 'Me playing Mi',
 			style: {
-				backgroundColor: '#262322',
+				backgroundColor: '#f8a9f8',
+			},
+		},
+	},
+	{
+		id: storageService._makeId(),
+		type: 'noteTxt',
+		isPinned: true,
+		info: {
+			txt: 'Oops, I did it again!!',
+			style: {
+				backgroundColor: '#a9f8b4',
 			},
 		},
 	},
@@ -43,7 +77,7 @@ let gKeeps = [
 				{ txt: 'Do this', doneAt: 187111111, isDone: false },
 			],
 			style: {
-				backgroundColor: '#262322',
+				backgroundColor: '#a9c5f8',
 			},
 		},
 	},
@@ -52,10 +86,10 @@ let gKeeps = [
 		type: 'noteVid',
 		isPinned: true,
 		info: {
-			url: 'https://www.youtube.com/watch?v=5OtbSxGnCS0',
-			title: 'Eli Hahatul',
+			url: 'https://www.youtube.com/embed/Jtauh8GcxBY',
+			title: 'Lewis Capaldi - Before You Go',
 			style: {
-				backgroundColor: '#262322',
+				backgroundColor: '#a9f8b4',
 			},
 		},
 	},

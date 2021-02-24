@@ -45,7 +45,7 @@ export default {
     },
     computed: {
         doneClass() {
-            return {todoDone: this.info.todos[].isDone}
+            // return {todoDone: this.info.todos[].isDone}
         }
     },
     created() {
