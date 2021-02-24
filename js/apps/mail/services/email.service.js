@@ -1,6 +1,13 @@
-'use-strict';
-const emails = [
+import { utilService } from '../../../services/util.service.js';
+import { storageService } from '../../../services/async-storage.service.js';
+
+export const emailService = {
+    query,
+}
+
+const gEmails = [
 	{
+		id: storageService._makeId(),
 		sender: 'Oren',
 		subject: 'Wassap daloooooooor?',
 		body: 'Did you see the new dalooor?',
@@ -8,12 +15,14 @@ const emails = [
 		sentAt: 1551133930594,
 	},
 	{
+		id: storageService._makeId(),
 		sender: 'Avocode ',
 		subject: `Your Avocode free trial is over', body: 'The free trial for gilad․peltz's team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
 		isRead: false,
 		sentAt: 1551133930594,
 	},
 	{
+		id: storageService._makeId(),
 		sender: `GitGuardian`,
 		subject: `Google Key exposed on GitHub`,
 		body: 'Pick up!',
@@ -21,6 +30,7 @@ const emails = [
 		sentAt: 1551133930594,
 	},
 	{
+		id: storageService._makeId(),
 		sender: `Font Awesome`,
 		subject: `Confirm Your Font Awesome Account Email Address
     `,
@@ -30,6 +40,7 @@ const emails = [
 		sentAt: 1551133930594,
 	},
 	{
+		id: storageService._makeId(),
 		sender: `Twitter `,
 		subject: `"California’s coronavirus strain looks increasingly dangerous" Moment
     `,
@@ -40,6 +51,7 @@ const emails = [
 		sentAt: 1551133930594,
 	},
 	{
+		id: storageService._makeId(),
 		sender: `Amazon.com`,
 		subject: `Deals have landed for Cyber Monday Week!
     `,
@@ -48,3 +60,15 @@ const emails = [
 		sentAt: 1551133930594,
 	},
 ];
+const EMAILS_KEY = 'emails';
+
+function query() {
+    return storageService.query(EMAILS_KEY)
+        .then(emails => {
+			if (!emails.length) {
+				utilService.saveToStorage(EMAILS_KEY, gEmails);
+				emails = gEmails;
+			}
+        	return emails;
+    })
+}

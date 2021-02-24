@@ -1,5 +1,6 @@
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
+import emailFilter from '../cmps/email-filter.cmp.js';
 
 
 export default {
@@ -25,12 +26,19 @@ export default {
         },
     },
     computed: {
-        
+        emailsToShow() {
+            if (!this.filterBy) return this.emails;
+            const searchSender = this.filterBy.bySender.toLowerCase();
+            return this.emails.filter(email => {
+                return email.sender.toLowerCase().includes(searchSender)               
+            })
+        }
     },
     created() {
-        emailList
+        this.loadEmails();
     },
     components: {
-        emailList
+        emailList,
+        emailFilter
     }
 }
