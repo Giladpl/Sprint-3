@@ -1,6 +1,6 @@
-'user-strict';
+'use-strict';
 
-var notes = [
+const notes = [
 	{
 		type: 'NoteTxt',
 		isPinned: true,
@@ -18,7 +18,21 @@ var notes = [
 			backgroundColor: '#00d',
 		},
 	},
-  
+	{
+		type: 'NoteTodos',
+		info: {
+			label: 'How was it:',
+			todos: [
+				{ txt: 'Do that', doneAt: null },
+				{ txt: 'Do this', doneAt: 187111111 },
+			],
+		},
+	},
+	{
+		type: 'NoteVid',
+		info: {
+			url: 'https://www.youtube.com/watch?v=5OtbSxGnCS0',
+			title: 'Eli Hahatul',
+		},
+	},
 ];
-
-
