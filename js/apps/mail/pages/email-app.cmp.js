@@ -25,14 +25,30 @@ export default {
 	},
 	computed: {
 		emailsToShow() {
+			console.log(this.filterBy);
 			if (!this.filterBy) return this.emails;
 			const byTxt = this.filterBy.txt.toLowerCase();
 			return this.emails.filter((email) => {
-				return (
-					email.sender.toLowerCase().includes(byTxt) ||
-					email.subject.toLowerCase().includes(byTxt) ||
-					email.body.toLowerCase().includes(byTxt)
-				);
+				if (this.filterBy.filterType === 'all')
+					return (
+						email.sender.toLowerCase().includes(byTxt) ||
+						email.subject.toLowerCase().includes(byTxt) ||
+						email.body.toLowerCase().includes(byTxt)
+					);
+				else if (this.filterBy.filterType === 'read')
+					return (
+						(email.sender.toLowerCase().includes(byTxt) ||
+							email.subject.toLowerCase().includes(byTxt) ||
+							email.body.toLowerCase().includes(byTxt)) &&
+						email.isRead
+					);
+				else if (this.filterBy.filterType === 'unread')
+					return (
+						(email.sender.toLowerCase().includes(byTxt) ||
+							email.subject.toLowerCase().includes(byTxt) ||
+							email.body.toLowerCase().includes(byTxt)) &&
+						!email.isRead
+					);
 			});
 		},
 	},
