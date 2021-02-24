@@ -1,7 +1,7 @@
 export default {
     props: ['info', 'id'],
     template: `
-          <section class="noteTodos" :style="{background: userColor}">
+          <section class="noteTodos note-card" :style="{background: userColor}">
                 <h2>Don't forget:</h2>
                 <ul class="todos-list">
                     <li v-for="(todo, idx) in todos" @click="toggleDone(idx)" :class="doneClass">{{todo.txt}}</li>

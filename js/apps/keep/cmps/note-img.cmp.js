@@ -1,7 +1,7 @@
 export default {
       props: ['info', 'id'],
       template: `
-            <section class="noteImg" :style="{background: userColor}">
+            <section class="noteImg note-card" :style="{background: userColor}">
                   <img :src="imgUrl" width="150"/>
                   <textarea v-if="userTitle" :style="{background: userColor}" name="txt" cols="22" rows="1" @change="changeTitle" v-model="userTitle">{{userTitle}}</textarea>
                   <div className="note-icons">

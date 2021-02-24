@@ -1,7 +1,7 @@
 export default {
     props: ['info', 'id'],
     template: `
-          <section class="noteTxt" :style="{background: userColor}">
+          <section class="noteTxt note-card" :style="{background: userColor}">
                 <textarea v-if="userTxt" :style="{background: userColor}" name="txt" cols="22" rows="3" @change="changeTxt" v-model="userTxt">{{userTxt}}</textarea>
                 <div className="note-icons">
                     <button>pin or not</button>

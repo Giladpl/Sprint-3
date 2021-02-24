@@ -1,7 +1,7 @@
 export default {
       props: ['info', 'id'],
       template: `
-            <section class="noteVid" :style="{background: userColor}">
+            <section class="noteVid note-card" :style="{background: userColor}">
                   <iframe v-if="vidUrl" width="300" height="250" :src="vidUrl"></iframe>
                   <textarea v-if="userTitle" :style="{background: userColor}" name="txt" cols="22" rows="1" @change="changeTitle" v-model="userTitle">{{userTitle}}</textarea>
                   <div className="note-icons">
