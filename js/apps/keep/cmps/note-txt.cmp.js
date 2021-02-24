@@ -2,7 +2,7 @@ export default {
     props: ['info', 'id'],
     template: `
           <section class="noteTxt" :style="{background: userColor}">
-                <textarea v-if="userTxt" name="txt" cols="22" rows="3" @change="changeTxt" v-model="userTxt">{{userTxt}}</textarea>
+                <textarea v-if="userTxt" :style="{background: userColor}" name="txt" cols="22" rows="3" @change="changeTxt" v-model="userTxt">{{userTxt}}</textarea>
                 <div className="note-icons">
                 <button>pin or not</button>
                 <button><input type="color" @change="changeColor" v-model="userColor"></button>
@@ -12,8 +12,8 @@ export default {
           `,
     data() {
         return {     
-            userColor: null,
-            userTxt: null
+            userColor: this.info.style.backgroundColor,
+            userTxt: this.info.txt
         }       
     },
     methods: {
@@ -28,8 +28,6 @@ export default {
         }
       },
     created() {
-        this.userColor = this.info.style.backgroundColor;
-        this.userTxt = this.info.txt;
-        console.log(this.id);
+        
     }
 };

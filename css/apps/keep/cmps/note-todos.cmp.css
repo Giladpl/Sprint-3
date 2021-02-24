@@ -1,0 +1,7 @@
+.todoDone {
+	text-decoration: line-through;
+}
+
+.noteTodos li {
+	cursor: pointer;
+}

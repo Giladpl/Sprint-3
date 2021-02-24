@@ -39,8 +39,8 @@ let gKeeps = [
 		info: {
 			label: 'How was it:',
 			todos: [
-				{ txt: 'Do that', doneAt: null },
-				{ txt: 'Do this', doneAt: 187111111 },
+				{ txt: 'Do that', doneAt: null, isDone: false },
+				{ txt: 'Do this', doneAt: 187111111, isDone: false },
 			],
 			style: {
 				backgroundColor: '#262322',
