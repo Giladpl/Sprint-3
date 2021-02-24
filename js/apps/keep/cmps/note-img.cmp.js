@@ -1,13 +1,13 @@
 export default {
       props: ['info', 'id'],
       template: `
-            <section class="noteImg note-card" :style="{background: userColor}">
-                  <img :src="imgUrl" width="150"/>
-                  <textarea v-if="userTitle" :style="{background: userColor}" name="txt" cols="22" rows="1" @change="changeTitle" v-model="userTitle">{{userTitle}}</textarea>
+            <section class="note-img note-card" :style="{background: userColor}">
+                  <img class="img-src" :src="imgUrl" width="150"/>
+                  <textarea v-if="userTitle" :style="{background: userColor}" name="txt" cols="22" rows="2" @change="changeTitle" v-model="userTitle">{{userTitle}}</textarea>
                   <div className="note-icons">
-                        <button>pin or not</button>
-                        <button><input type="color" @change="changeColor" v-model="userColor"></button>
-                        <button @click="removeNote">remove</button>
+                        <button class="pin-btn"><img src="../../../../img/pin.png" width="20"/></button>
+                        <button class="color-btn"><input class="input-color" type="color" @change="changeColor" v-model="userColor"></button>
+                        <button class="trash-btn" @click="removeNote"><img src="../../../../img/trash.png" width="20"/></button>
                   </div>
             </section>
             `,

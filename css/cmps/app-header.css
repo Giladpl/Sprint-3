@@ -3,7 +3,7 @@
 .app-header {
 	background-color: #52616b;
 	color: #f0f5f9;
-	padding: 10px;
+	padding: 10px 60px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
