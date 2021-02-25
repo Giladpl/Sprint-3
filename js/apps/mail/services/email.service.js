@@ -6,6 +6,7 @@ export const emailService = {
 	getById,
 	removeEmail,
 	saveEmail,
+	getEmptySentEmail,
 };
 
 const gEmails = [
@@ -78,6 +79,7 @@ const gEmails = [
 		isSent: false,
 	},
 ];
+
 const EMAILS_KEY = 'emails';
 
 function query() {
@@ -88,6 +90,18 @@ function query() {
 		}
 		return emails;
 	});
+}
+
+function getEmptySentEmail(){
+	return {
+		// id: storageService._makeId(),
+		sender: 'Me',
+		subject: null,
+		to: null,
+		body: null,
+		sentAt: Date.now(),
+		isSent: true,
+	}
 }
 
 function getById(id) {

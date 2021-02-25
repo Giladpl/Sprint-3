@@ -44,8 +44,12 @@ export default {
 			this.isReply = true;
 		},
 		replyEmail() {
-			console.log(this.replyMsg);
-			this.isReply = false;
+			const emptyEmail = emailService.getEmptySentEmail();
+			emptyEmail.body = this.replyMsg;
+			emptyEmail.subject = this.email.subject;
+			emptyEmail.to = this.email.sender;
+			console.log(emptyEmail);
+			emailService.saveEmail(emptyEmail);
 			this.$router.push('/mail');
 		},
 	},

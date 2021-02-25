@@ -17,7 +17,9 @@ export default {
 	},
 	methods: {
 		loadEmails() {
-			emailService.query().then((emails) => (this.emails = emails));
+			emailService.query().then((emails) => {
+				this.emails = emails.filter((email) => !email.isSent);
+			});
 		},
 		setFilter(filterBy) {
 			this.filterBy = filterBy;
