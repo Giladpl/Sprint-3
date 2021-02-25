@@ -5,7 +5,8 @@ export const keepService = {
     query,
 	getById,
 	saveNote,
-	removeNote
+	removeNote,
+	addKeep
 }
 
 let gKeeps = [
@@ -121,4 +122,42 @@ function saveNote(note) {
 
 function removeNote(noteId) {
     return storageService.remove(KEEPS_KEY, noteId)
+}
+
+function addKeep(userAdd) {
+    var newInfo = {}
+    switch (userAdd.typeInput) {
+        case 'noteTxt':
+            newInfo = {
+				txt: userAdd.userInput,
+				style: {
+					backgroundColor: '#a9e2f8',
+				},
+			}
+            break;
+		case 'noteTodos':
+			newInfo = {
+				label: 'How was it:',
+				todos: [],
+				style: {
+					backgroundColor: '#a9c5f8',
+				}
+			}
+			let todosTxt = userAdd.userInput.split(',');
+			todosTxt.forEach(todo => {
+				newInfo.todos.push({txt: todo, doneAt: null, isDone: false})
+			})
+			break;
+        case 'noteImg' || 'noteVid':
+            newInfo = {
+				url: userAdd.userInput,
+				title: 'add title',
+				style: {
+					backgroundColor: '#f8a9f8',
+				},
+			}
+            break;
+    }
+    const newNoteAdd = { id: storageService._makeId(), type: userAdd.typeInput, info: newInfo}
+	return storageService.post(KEEPS_KEY, newNoteAdd)
 }

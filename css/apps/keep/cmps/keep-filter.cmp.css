@@ -1,0 +1,23 @@
+.keep-filter {
+	display: flex;
+	justify-content: center;
+	padding-top: 30px;
+}
+
+.keep-filter input,
+.keep-filter select {
+	background-color: inherit;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.192);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 7px;
+	width: 300px;
+	margin-top: 20px;
+}
+
+.keep-filter select {
+	width: 50px;
+	margin-left: 10px;
+}
