@@ -1,0 +1,29 @@
+.home-page {
+	background-image: url("../../img/home.jpg");
+	height: 100vh;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 4px solid #0077b6;
+	color: #0077b6;
+	font-size: 30px;
+	text-decoration: none;
+	height: 100px;
+	width: 250px;
+}
+
+.home-container a {
+	margin-left: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+	color: #0077b6;
+}
