@@ -1,19 +1,33 @@
-.sender-subject-container{
-  display: flex;
-  flex-direction: column;
-  height: 70px;
-  line-height: 1.5;
-  /* border-bottom: 1px solid black; */
-  margin-bottom: 10px;
+.email-display {
+	/* padding-left: 60px;
+	margin: 10px auto; */
+	display: grid;
+  background-color: #A9E2F8;
+	grid-template-columns: 1fr 5fr;
+	grid-template-rows: 1fr;
 }
 
-.email-body{
-  height: 300px;
-  max-width: 700px;
-  overflow: auto;
+.sender-subject-container {
+	display: flex;
+	flex-direction: column;
+	height: 70px;
+	line-height: 1.5;
+	/* border-bottom: 1px solid black; */
+	margin-bottom: 10px;
+	grid-row: 2 / 3;
+	grid-column: 2 / 3;
 }
 
-.email-display{
-  padding-left: 60px;
-  margin: 10px auto;
+.email-body {
+	height: 300px;
+	max-width: 700px;
+	overflow: auto;
+}
+
+.in-display-menu {
+	background-color: white;
+}
+
+.reply-container {
+  
 }

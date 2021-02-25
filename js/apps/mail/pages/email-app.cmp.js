@@ -1,12 +1,16 @@
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
+import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 export default {
 	template: `
         <section class="email-app">
-            <email-filter @filtered="setFilter" />
-            <email-list @emailRead="changeToRead" :emails="emailsToShow"/>
+						<email-side-menu />
+						<div class="list-menu-container">
+							<email-filter @filtered="setFilter" />
+							<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
+						</div>
         </section>
     `,
 	data() {
@@ -56,5 +60,6 @@ export default {
 	components: {
 		emailList,
 		emailFilter,
+		emailSideMenu,
 	},
 };

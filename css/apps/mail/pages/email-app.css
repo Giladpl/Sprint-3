@@ -1,0 +1,16 @@
+.email-app {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 5fr;
+	grid-template-rows: 1fr;
+}
+
+.email-side-menu {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.list-menu-container {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+}

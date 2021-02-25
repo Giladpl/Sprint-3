@@ -1,25 +1,29 @@
 import { emailService } from '../services/email.service.js';
+import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 export default {
 	template: `
 <section v-if="email" class="email-display">
-	<div class="sender-subject-container">
-		<div class="email-sender">
-			From: {{this.email.sender}}
+	<email-side-menu class="in-display-menu"/>
+	<div class="menu-email-container">
+		<div class="sender-subject-container">
+			<div class="email-sender">
+				From: {{this.email.sender}}
+			</div>
+			<div class="email-subject">
+				Subject: {{this.email.subject}}
+			</div>
 		</div>
-		<div class="email-subject">
-			Subject: {{this.email.subject}}
+		<div class="email-body">
+			{{this.email.body}}
 		</div>
-	</div>
-	<div class="email-body">
-		{{this.email.body}}
-	</div>
-	<button @click=replyClick>Reply</button>
-	<button @click="deleteEmail">Delete</button>
-	<div v-if="isReply" class="reply-container">
-		<p>To: {{email.sender}}</p>
-		<textarea rows="4" cols="100" placeholder="Enter your reply" v-model="replyMsg"></textarea>
-		<button @click="replyEmail">Reply</button>
+		<button @click=replyClick>Reply</button>
+		<button @click="deleteEmail">Delete</button>
+		<div v-if="isReply" class="reply-container">
+			<p>To: {{email.sender}}</p>
+			<textarea rows="4" cols="100" placeholder="Enter your reply" v-model="replyMsg"></textarea>
+			<button @click="replyEmail">Reply</button>
+		</div>
 	</div>
 </section>
 `,
@@ -56,5 +60,8 @@ export default {
 	computed: {},
 	created() {
 		this.loadEmail();
+	},
+	components: {
+		emailSideMenu,
 	},
 };
