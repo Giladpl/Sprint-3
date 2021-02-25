@@ -9,6 +9,8 @@ p {
 .email-preview {
 	display: flex;
 	height: auto;
+	background-color: #ECF1F7;
+  border: rgb(44, 44, 44) 1px solid;
 }
 
 .sender-subject-container-preview {
@@ -22,7 +24,12 @@ p {
 }
 
 .sentAt {
-  margin-right: 10px;
+	margin-right: 10px;
 	position: absolute;
 	right: 0;
+}
+
+.alreadyReadEmail {
+	font-weight: 800;
+	background-color: #CCDAE6;
 }
