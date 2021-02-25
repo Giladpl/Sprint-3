@@ -26,33 +26,25 @@ export default {
 			email.isRead = true;
 			emailService.saveEmail(email);
 		},
+		emailConditions(email, txt) {
+			return (
+				email.sender.toLowerCase().includes(txt) ||
+				email.subject.toLowerCase().includes(txt) ||
+				email.body.toLowerCase().includes(txt)
+			);
+		},
 	},
 	computed: {
 		emailsToShow() {
-			// console.log(this.filterBy);
 			if (!this.filterBy) return this.emails;
 			const byTxt = this.filterBy.txt.toLowerCase();
 			return this.emails.filter((email) => {
 				if (this.filterBy.filterType === 'all')
-					return (
-						email.sender.toLowerCase().includes(byTxt) ||
-						email.subject.toLowerCase().includes(byTxt) ||
-						email.body.toLowerCase().includes(byTxt)
-					);
+					return this.emailConditions(email, byTxt);
 				else if (this.filterBy.filterType === 'read')
-					return (
-						(email.sender.toLowerCase().includes(byTxt) ||
-							email.subject.toLowerCase().includes(byTxt) ||
-							email.body.toLowerCase().includes(byTxt)) &&
-						email.isRead
-					);
+					return this.emailConditions(email, byTxt) && email.isRead;
 				else if (this.filterBy.filterType === 'unread')
-					return (
-						(email.sender.toLowerCase().includes(byTxt) ||
-							email.subject.toLowerCase().includes(byTxt) ||
-							email.body.toLowerCase().includes(byTxt)) &&
-						!email.isRead
-					);
+					return this.emailConditions(email, byTxt) && !email.isRead;
 			});
 		},
 	},

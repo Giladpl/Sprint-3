@@ -1,10 +1,16 @@
 .keeps-app {
 	background-color: #daebf2;
+}
+
+.keep-content {
 	padding: 50px;
 	display: grid;
 	gap: 15px;
 	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+<<<<<<< HEAD
 	/* grid-auto-flow: dense; */
+=======
+>>>>>>> c17ed9194b2d8d4e711bd35e7248bf4d398e7697
 	align-items: center;
 	justify-items: center;
 }
