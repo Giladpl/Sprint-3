@@ -4,6 +4,7 @@
 	background-color: #52616b;
 	color: #f0f5f9;
 	padding: 10px 60px;
+	height: 10vh;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -32,6 +33,7 @@ nav > *:not(:last-child) {
 footer {
 	background-color: #52616b;
 	color: #f0f5f9;
+	height: 10vh;
 	padding: 15px;
 	text-align: center;
 }

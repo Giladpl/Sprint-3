@@ -3,3 +3,12 @@
   flex-direction: column;
   align-items: center;
 }
+
+.btn-side-menu{
+  background-color: inherit;
+  /* border: none; */
+  width: 150px;
+  height: 30px;
+
+
+}

@@ -3,7 +3,7 @@ export default {
 	template: `
         <section class="email-preview" :class="isReadClass">
             <div class="sender-subject-container-preview" >
-                <h4 class="sender">{{email.sender}}</h4>
+                <p class="sender">{{email.sender}}</p>
                 <p class="subject">{{email.subject}}</p>
             </div>
             <p class="sentAt">{{sentAtConversion}}</p>

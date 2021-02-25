@@ -1,6 +1,7 @@
 .email-app {
 	display: grid;
 	width: 100%;
+	height: 80vh;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
 }
