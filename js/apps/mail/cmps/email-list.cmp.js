@@ -5,7 +5,7 @@ export default {
 	template: `
     <ul class="email-list clean-list">
         <li v-for="email in emails" :key="email.id" class="email-preview-container">
-        <router-link class="removeLinkStyle" :to="'/mail/'+email.id"><email-preview @click.native="changeToRead(email)" :email="email"/></router-link>
+        <router-link class="removeLinkStyle" :to="'/mail/'+email.id"><email-preview @click.native.stop="changeToRead(email)" :email="email"/></router-link>
         </li>
     </ul>
     `,
