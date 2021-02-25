@@ -9,6 +9,14 @@
 	align-items: center;
 	justify-content: space-between;
 }
+.logo-container{
+	display: flex;
+}
+
+.logo-container img{
+	width:45px;
+	margin-left:20px;
+}
 
 .app-header h1 {
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
