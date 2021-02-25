@@ -9,13 +9,13 @@
 	align-items: center;
 	justify-content: space-between;
 }
-.logo-container{
+.logo-container {
 	display: flex;
 }
 
-.logo-container img{
-	width:45px;
-	margin-left:20px;
+.logo-container img {
+	width: 45px;
+	margin-right: 20px;
 }
 
 .app-header h1 {
