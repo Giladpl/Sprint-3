@@ -1,0 +1,39 @@
+.keep-add form {
+	display: flex;
+	justify-content: center;
+}
+
+.add-keep-input {
+	background-color: inherit;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.192);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 7px;
+	width: 300px;
+	margin-top: 20px;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.txt-btn,
+.list-btn,
+.img-btn,
+.vid-btn {
+	background-color: inherit;
+	border: none;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.txt-btn:hover,
+.list-btn:hover,
+.img-btn:hover,
+.vid-btn:hover {
+	opacity: 0.6;
+}
