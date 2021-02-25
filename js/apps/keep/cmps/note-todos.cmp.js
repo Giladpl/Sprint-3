@@ -1,7 +1,7 @@
 import noteTodoList from './note-todo-list.cmp.js';
 
 export default {
-	props: ['info', 'id'],
+	props: ['info', 'id', 'pin'],
 	template: `
           <section class="noteTodos note-card" :style="{background: userColor}">
                 <h2>Don't forget:</h2>
@@ -15,7 +15,7 @@ export default {
                     <button class="add-btn"><img src="../../../../img/add.png" width="20"/></button>
                 </form>
 				<div className="note-icons">
-					<button class="pin-btn"><img src="../../../../img/pin.png" width="20"/></button>
+					<button class="pin-btn" :class="isPinned" @click="togglePin"><img src="../../../../img/pin.png" width="20"/></button>
 					<button class="color-btn"><input class="input-color" type="color" @change="changeColor" v-model="userColor"></button>
 					<button class="trash-btn" @click="removeNote"><img src="../../../../img/trash.png" width="20"/></button>
 				</div>
@@ -25,8 +25,7 @@ export default {
 		return {
 			userColor: this.info.style.backgroundColor,
 			todos: this.info.todos,
-			newTodo: null,
-			// isDone: this.info.todos.isDone
+			newTodo: null
 		};
 	},
 	methods: {
@@ -40,8 +39,15 @@ export default {
 		removeNote() {
 			this.$emit('remove', this.id);
 		},
+        togglePin() {
+            this.$emit("togglePin", this.id);
+        }
 	},
-	created() {},
+	computed: {
+		isPinned() {
+			return {isPinned: this.pin};
+		},
+	},
 	components: {
 		noteTodoList,
 	},
