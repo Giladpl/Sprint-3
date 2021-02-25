@@ -1,0 +1,12 @@
+.email-compose {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+  border: 1px solid black;
+}
+
+.email-compose form {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
