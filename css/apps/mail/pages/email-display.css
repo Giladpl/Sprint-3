@@ -1,17 +1,22 @@
 .email-display {
-<<<<<<< HEAD
 	display: grid;
-	background-color: #daebf2;
-=======
-	/* padding-left: 60px;
-	margin: 10px auto; */
 	position: relative;
-	display: grid;
-	height: 80vh;
-  background-color: #DAEBF2;
->>>>>>> 562b8bc9f57c30316948aab1b1ea03ab617e595c
+	padding: 50px;
+	height: 100vh;
+	background-color: #daebf2;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
+	justify-items: center;
+}
+
+.email-side-display {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.menu-email-container {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
 }
 
 .sender-subject-container {
@@ -19,17 +24,35 @@
 	flex-direction: column;
 	height: 70px;
 	line-height: 1.5;
+	font-weight: 700;
 	margin-bottom: 10px;
-	grid-row: 2 / 3;
-	grid-column: 2 / 3;
 }
 
 .email-body {
 	height: 300px;
 	max-width: 700px;
 	overflow: auto;
+	line-height: 1.5;
+	margin-bottom: 40px;
 }
 
 .in-display-menu {
 	background-color: #daebf2;
+}
+
+.send-btn,
+.trash-email-btn,
+.reply-email-btn {
+	background: inherit;
+	border: none;
+}
+
+.send-btn:hover,
+.trash-email-btn:hover,
+.reply-email-btn:hover {
+	opacity: 0.7;
+}
+
+.reply-btn-container {
+	margin-bottom: 20px;
 }

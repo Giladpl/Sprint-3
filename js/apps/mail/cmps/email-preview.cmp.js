@@ -7,6 +7,8 @@ export default {
                 <p class="subject">{{email.subject}}</p>
             </div>
             <p class="sentAt">{{sentAtConversion}}</p>
+			<button class="trash-btn-preview"><img src="../../../../img/trash.png" width="20"></button>
+			<span class="read-btn-preview"><img :src="../../../../img/email-read.png" width="20"></span>
         </section>
         `,
 	computed: {

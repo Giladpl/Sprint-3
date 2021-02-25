@@ -5,29 +5,31 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 
 export default {
 	template: `
-<section v-if="email" class="email-display">
-	<email-side-menu @openCompose="onCompose" class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
-	<email-compose v-if="isCompose" @newMail="sendNewMail"/>
-	<div class="menu-email-container">
-		<div class="sender-subject-container">
-			<div class="email-sender">
-				From: {{this.email.sender}}
+	<section v-if="email" class="email-display">
+		<email-side-menu @openCompose="onCompose" class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
+		<div class="menu-email-container">
+			<div class="sender-subject-container">
+				<div class="email-sender">
+					From: {{this.email.sender}}
+				</div>
+				<div class="email-subject">
+					Subject: {{this.email.subject}}
+				</div>
 			</div>
-			<div class="email-subject">
-				Subject: {{this.email.subject}}
+			<div class="email-body">
+				{{this.email.body}}
+			</div>
+			<div class="reply-btn-container">
+				<button class="reply-email-btn" @click=replyClick><img src="../../../../img/reply.svg" width="25"></button>
+				<button class="trash-email-btn" @click="deleteEmail"><img src="../../../../img/trash.png" width="25"></button>
+			</div>
+			<div v-if="isReply" class="reply-container">
+				<p>To: {{email.sender}}</p>
+				<textarea rows="4" cols="100" placeholder="Enter your reply" v-model="replyMsg"></textarea>
+				<button class="send-btn" @click="replyEmail"><img src="../../../../img/sent-email.png" width="25"></button>
 			</div>
 		</div>
-		<div class="email-body">
-			{{this.email.body}}
-		</div>
-		<button @click=replyClick>Reply</button>
-		<button @click="deleteEmail">Delete</button>
-		<div v-if="isReply" class="reply-container">
-			<p>To: {{email.sender}}</p>
-			<textarea rows="4" cols="100" placeholder="Enter your reply" v-model="replyMsg"></textarea>
-			<button @click="replyEmail">Reply</button>
-		</div>
-	</div>
+		<email-compose v-if="isCompose" @newMail="sendNewMail"/>
 </section>
 `,
 	data() {

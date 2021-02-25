@@ -9,7 +9,7 @@ export default {
 	template: `
         <section class="email-app">
 			<email-filter @filtered="setFilter" />
-			<email-side-menu @onInbox="updateInbox" @onSent="updateSent"/>
+			<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent"/>
 			<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
         </section>
     `,

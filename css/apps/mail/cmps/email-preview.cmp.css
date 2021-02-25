@@ -31,7 +31,26 @@ p {
 .sentAt {
 	margin-right: 10px;
 	position: absolute;
-	right: 30px;
+	right: 80px;
+}
+
+.trash-btn-preview {
+	padding-top: 2px;
+	background: inherit;
+	border: none;
+	position: absolute;
+	right: 55px;
+}
+
+.read-btn-preview {
+	background: inherit;
+	border: none;
+	position: absolute;
+	right: 35px;
+}
+
+.trash-btn-preview:hover {
+	opacity: 0.7;
 }
 
 .unreadEmail {
