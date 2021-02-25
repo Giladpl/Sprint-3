@@ -6,7 +6,7 @@ export default {
 	template: `
         <section class="email-app">
             <email-filter @filtered="setFilter" />
-            <email-list :emails="emailsToShow"/>
+            <email-list @emailRead="changeToRead" :emails="emailsToShow"/>
         </section>
     `,
 	data() {
@@ -22,10 +22,14 @@ export default {
 		setFilter(filterBy) {
 			this.filterBy = filterBy;
 		},
+		changeToRead(email) {
+			email.isRead = true;
+			emailService.saveEmail(email);
+		},
 	},
 	computed: {
 		emailsToShow() {
-			console.log(this.filterBy);
+			// console.log(this.filterBy);
 			if (!this.filterBy) return this.emails;
 			const byTxt = this.filterBy.txt.toLowerCase();
 			return this.emails.filter((email) => {

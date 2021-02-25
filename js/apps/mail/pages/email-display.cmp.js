@@ -33,7 +33,7 @@ export default {
 	methods: {
 		loadEmail() {
 			const emailId = this.$route.params.emailId;
-			console.log(this.$route.params);
+			// console.log(this.$route.params);
 			emailService.getById(emailId).then((email) => (this.email = email));
 		},
 		deleteEmail() {
