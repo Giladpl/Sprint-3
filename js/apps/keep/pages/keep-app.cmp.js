@@ -5,16 +5,14 @@ import noteVid from '../cmps/note-vid.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import keepFilter from '../cmps/keep-filter.cmp.js';
 import keepAdd from '../cmps/keep-add.cmp.js'
-import { storageService } from '../../../services/async-storage.service.js';
-
 
 export default {
 	template: `
         <section class="keeps-app">
 			<keep-filter class="keep-filter" @filtered="setFilter"/>
 			<keep-add @added="addKeep"/>
-			<div class="keep-content">
-				<div :keeps="keepsToShow" v-for="keep in keeps">
+			<div class="keep-content"  :keeps="keepsToShow">
+				<div v-for="keep in keeps" :key="keep.id">
 					<component :is="keep.type" :id="keep.id" :info="keep.info" :pin="keep.isPinned" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo" @setTitle="updateTitle" @togglePin="updateIsPinned"></component>
 				</div>
 			</div>
@@ -29,9 +27,10 @@ export default {
 	methods: {
 		loadKeeps() {
 			keepService.query().then((keeps) => {
-				const pin = keeps.filter(keep => keep.isPinned);
-				const notPin = keeps.filter(keep => !keep.isPinned);
-				this.keeps = pin.concat(notPin);
+				const pinned = keeps.filter(keep => keep.isPinned);
+				const notPinned = keeps.filter(keep => !keep.isPinned);
+				this.keeps = [...pinned, ...notPinned]
+				console.log(this.keeps);
 			});
 		},
 		setFilter(filterBy) {
@@ -53,10 +52,14 @@ export default {
 			keepService.removeNote(id).then(this.loadKeeps);
 		},
 		addTodo(todo, id) {
-			keepService.getById(id).then((note) => {
-				note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
-				keepService.saveNote(note)
-					.then(this.loadKeeps)
+			keepService.getById(id)
+				.then((note) => {
+					note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
+					note.info.label = 'hi'
+					keepService.saveNote(note)
+						.then(() => {
+							this.loadKeeps()
+						})
 			});
 		},
 		updateTitle(title, id) {
@@ -67,14 +70,15 @@ export default {
 			});
 		},
 		noteConditions(note, txt) {
-			return (
-				note.info.txt?.toLowerCase().includes(txt) ||
-				note.info.title?.toLowerCase().includes(txt) ||
-				note.info.label?.toLowerCase().includes(txt) 
+			if (note.type === 'noteTxt')  return note.info.txt.toLowerCase().includes(txt);
+			if (note.type === 'noteImg' ||  note.type === 'noteVid') 
+				return note.info.title.toLowerCase().includes(txt)
+			if (note.type === 'noteTodos') {
+				return note.info.label?.toLowerCase().includes(txt) 
 				// note.info.todos.forEach(todo => {
 				// 	return todo.txt.toLowerCase().includes(txt)
 				// })
-			)
+			}
 		},
 		updateIsPinned(id) {
 			keepService.getById(id).then((note) => {
@@ -110,9 +114,6 @@ export default {
 	},
 	created() {
 		this.loadKeeps();
-		// setInterval(() => {
-		// 	console.log(this.keeps)
-		// }, 3000);
 	},
 	components: {
 		noteTxt,

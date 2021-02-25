@@ -23,6 +23,10 @@ export default {
     methods:{
         addKeep() {
             this.$emit('added', this.userAdd);
+            this.userAdd = {
+                userInput: null,
+                typeInput: 'noteTxt'
+            }
         },
         onTxt() {
             this.userAdd.typeInput = 'noteTxt';
