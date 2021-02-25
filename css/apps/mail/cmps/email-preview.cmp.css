@@ -9,10 +9,12 @@ p {
 .email-preview {
 	display: flex;
 	height: auto;
-	background-color: #ECF1F7;
-  border: rgb(44, 44, 44) 1px solid;
+	background-color: #ecf1f7;
+	border: 1px solid gray;
+	margin-bottom: 1px;
 }
-.email-preview:hover{
+
+.email-preview:hover {
 	background-color: aliceblue;
 }
 
@@ -29,11 +31,10 @@ p {
 .sentAt {
 	margin-right: 10px;
 	position: absolute;
-	right: 0;
+	right: 30px;
 }
 
 .unreadEmail {
 	font-weight: 800;
-	background-color: #CCDAE6;
+	background-color: #ccdae6;
 }
-

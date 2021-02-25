@@ -1,8 +1,6 @@
 .email-display {
-	/* padding-left: 60px;
-	margin: 10px auto; */
 	display: grid;
-  background-color: #A9E2F8;
+	background-color: #daebf2;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
 }
@@ -12,7 +10,6 @@
 	flex-direction: column;
 	height: 70px;
 	line-height: 1.5;
-	/* border-bottom: 1px solid black; */
 	margin-bottom: 10px;
 	grid-row: 2 / 3;
 	grid-column: 2 / 3;
@@ -25,9 +22,5 @@
 }
 
 .in-display-menu {
-	background-color: white;
-}
-
-.reply-container {
-  
+	background-color: #daebf2;
 }

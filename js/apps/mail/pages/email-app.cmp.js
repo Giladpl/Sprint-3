@@ -8,11 +8,9 @@ import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 export default {
 	template: `
         <section class="email-app">
-						<email-side-menu @onInbox="updateInbox" @onSent="updateSent"/>
-						<div class="list-menu-container">
-							<email-filter @filtered="setFilter" />
-							<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
-						</div>
+			<email-filter @filtered="setFilter" />
+			<email-side-menu @onInbox="updateInbox" @onSent="updateSent"/>
+			<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
         </section>
     `,
 	data() {
@@ -25,6 +23,7 @@ export default {
 	methods: {
 		loadEmails() {
 			emailService.query().then((emails) => {
+				console.log('load',this.emailType);
 				if (this.emailType === 'inbox') this.emails = emails.filter((email) => !email.isSent);
 				else if (this.emailType === 'sent') this.emails = emails.filter((email) => email.isSent)
 			});
@@ -54,9 +53,8 @@ export default {
 			this.loadEmails();
 		},
 		typeDisplay(type) {
-			console.log(type);
 			this.emailType = type;
-			console.log(this.emailType);
+			console.log('display',this.emailType);
 			this.loadEmails();
 		}
 	},
@@ -75,8 +73,9 @@ export default {
 		},
 	},
 	created() {
-		this.loadEmails();
+		console.log('create', this.emailType);
 		eventBus.$on('emailType', this.typeDisplay)
+		this.loadEmails();
 	},
 	destroyed(){
         // eventBus.$off('emailType', this.typeDisplay)

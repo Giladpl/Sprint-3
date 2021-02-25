@@ -1,0 +1,23 @@
+.email-filter {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+.email-filter input,
+.email-filter select {
+	background-color: inherit;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.192);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 7px;
+	width: 300px;
+	margin-top: 20px;
+}
+
+.email-filter select {
+	width: 80px;
+	margin-left: 10px;
+}

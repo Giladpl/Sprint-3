@@ -1,17 +1,23 @@
 .email-app {
+	background-color: #daebf2;
 	display: grid;
-	width: 100%;
-	height: 80vh;
+	padding: 30px;
+	height: 100vh;
 	grid-template-columns: 1fr 5fr;
-	grid-template-rows: 1fr;
+	grid-template-rows: 1fr 8fr;
+}
+
+.email-filter {
+	grid-column: 1 / 3;
+	grid-row: 1 / 2;
 }
 
 .email-side-menu {
 	grid-column: 1 / 2;
-	grid-row: 1 / 2;
+	grid-row: 2 / 3;
 }
 
-.list-menu-container {
+.email-list {
 	grid-column: 2 / 3;
-	grid-row: 1 / 2;
+	grid-row: 2 / 3;
 }

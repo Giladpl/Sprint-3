@@ -1,14 +1,16 @@
-.email-side-menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.email-side-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.btn-side-menu{
-  background-color: inherit;
-  /* border: none; */
-  width: 150px;
-  height: 30px;
+.btn-side-menu {
+	background-color: inherit;
+	width: 150px;
+	margin-bottom: 10px;
+}
 
-
+.btn-side-menu > * {
+	padding: 10px;
+	list-style: none;
 }

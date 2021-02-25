@@ -1,13 +1,12 @@
 export default {
 	template: `
             <section class="email-filter">
-            
-            <select @change="selectFilter">
-                <option value="all">All</option>
-                <option value="read">Opened emails</option>
-                <option value="unread">Unread emails</option>
-            </select>
                 <input type="text" @input="setFilter" placeholder="Search an email" v-model="filterBy.txt">
+				<select @change="selectFilter">
+					<option value="all">All</option>
+					<option value="read">Opened emails</option>
+					<option value="unread">Unread emails</option>
+				</select>
             </section>`,
 	data() {
 		return {
