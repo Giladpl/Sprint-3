@@ -1,6 +1,15 @@
 .email-display {
+<<<<<<< HEAD
 	display: grid;
 	background-color: #daebf2;
+=======
+	/* padding-left: 60px;
+	margin: 10px auto; */
+	position: relative;
+	display: grid;
+	height: 80vh;
+  background-color: #DAEBF2;
+>>>>>>> 562b8bc9f57c30316948aab1b1ea03ab617e595c
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
 }

@@ -1,11 +1,13 @@
 import { emailService } from '../services/email.service.js';
-import { eventBus } from "../../../services/event-bus.service.js";
+import { eventBus } from '../../../services/event-bus.service.js';
 import emailSideMenu from '../cmps/email-side-menu.cmp.js';
+import emailCompose from '../cmps/email-compose.cmp.js';
 
 export default {
 	template: `
 <section v-if="email" class="email-display">
-	<email-side-menu class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
+	<email-side-menu @openCompose="onCompose" class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
+	<email-compose v-if="isCompose" @newMail="sendNewMail"/>
 	<div class="menu-email-container">
 		<div class="sender-subject-container">
 			<div class="email-sender">
@@ -33,6 +35,7 @@ export default {
 			email: null,
 			isReply: false,
 			replyMsg: null,
+			isCompose: false,
 		};
 	},
 	methods: {
@@ -53,18 +56,29 @@ export default {
 			emptyEmail.body = this.replyMsg;
 			emptyEmail.subject = this.email.subject;
 			emptyEmail.to = this.email.sender;
-			console.log(emptyEmail);
+			// console.log(emptyEmail);
 			emailService.saveEmail(emptyEmail);
 			this.$router.push('/mail');
 		},
 		updateInboxDisplay(type) {
-			eventBus.$emit('emailType', type)
+			eventBus.$emit('emailType', type);
 			this.$router.push('/mail');
 		},
 		updateSentDisplay(type) {
-			eventBus.$emit('emailType', type)
+			eventBus.$emit('emailType', type);
 			this.$router.push('/mail');
-		}
+		},
+		sendNewMail(newMail) {
+			const mailToSend = emailService.getEmptySentEmail();
+			mailToSend.to = newMail.to;
+			mailToSend.subject = newMail.subject;
+			mailToSend.body = newMail.body;
+			emailService.saveEmail(mailToSend);
+		},
+		onCompose() {
+			console.log('puki');
+			this.isCompose = !this.isCompose;
+		},
 	},
 	computed: {},
 	created() {
@@ -72,5 +86,6 @@ export default {
 	},
 	components: {
 		emailSideMenu,
+		emailCompose,
 	},
 };

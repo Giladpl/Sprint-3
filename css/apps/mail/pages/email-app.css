@@ -21,3 +21,10 @@
 	grid-column: 2 / 3;
 	grid-row: 2 / 3;
 }
+
+.mainbody{
+	position: absolute;
+	top: 40px; /* Header Height */
+	bottom: 20px; /* Footer Height */
+	width: 100%;
+}
