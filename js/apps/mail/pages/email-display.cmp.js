@@ -1,10 +1,11 @@
 import { emailService } from '../services/email.service.js';
+import { eventBus } from "../../../services/event-bus.service.js";
 import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 export default {
 	template: `
 <section v-if="email" class="email-display">
-	<email-side-menu class="in-display-menu"/>
+	<email-side-menu class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
 	<div class="menu-email-container">
 		<div class="sender-subject-container">
 			<div class="email-sender">
@@ -56,6 +57,14 @@ export default {
 			emailService.saveEmail(emptyEmail);
 			this.$router.push('/mail');
 		},
+		updateInboxDisplay(type) {
+			eventBus.$emit('emailType', type)
+			this.$router.push('/mail');
+		},
+		updateSentDisplay(type) {
+			eventBus.$emit('emailType', type)
+			this.$router.push('/mail');
+		}
 	},
 	computed: {},
 	created() {

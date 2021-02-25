@@ -1,12 +1,14 @@
 import { emailService } from '../services/email.service.js';
+import { eventBus } from "../../../services/event-bus.service.js"
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
+
 export default {
 	template: `
         <section class="email-app">
-						<email-side-menu />
+						<email-side-menu @onInbox="updateInbox" @onSent="updateSent"/>
 						<div class="list-menu-container">
 							<email-filter @filtered="setFilter" />
 							<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
@@ -17,12 +19,14 @@ export default {
 		return {
 			emails: null,
 			filterBy: null,
+			emailType: 'inbox'
 		};
 	},
 	methods: {
 		loadEmails() {
 			emailService.query().then((emails) => {
-				this.emails = emails.filter((email) => !email.isSent);
+				if (this.emailType === 'inbox') this.emails = emails.filter((email) => !email.isSent);
+				else if (this.emailType === 'sent') this.emails = emails.filter((email) => email.isSent)
 			});
 		},
 		setFilter(filterBy) {
@@ -39,6 +43,22 @@ export default {
 				email.body.toLowerCase().includes(txt)
 			);
 		},
+		updateInbox(type) {
+			this.emailType = type;
+			console.log(this.emailType);
+			this.loadEmails();
+		},
+		updateSent(type) {
+			this.emailType = type;
+			console.log(this.emailType);
+			this.loadEmails();
+		},
+		typeDisplay(type) {
+			console.log(type);
+			this.emailType = type;
+			console.log(this.emailType);
+			this.loadEmails();
+		}
 	},
 	computed: {
 		emailsToShow() {
@@ -56,7 +76,11 @@ export default {
 	},
 	created() {
 		this.loadEmails();
+		eventBus.$on('emailType', this.typeDisplay)
 	},
+	destroyed(){
+        // eventBus.$off('emailType', this.typeDisplay)
+    },
 	components: {
 		emailList,
 		emailFilter,
