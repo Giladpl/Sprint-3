@@ -5,11 +5,12 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: #DAEBF2;
 }
 
 .email-list {
-	height: 70vh;
-	background-color: #a9e2f8;
+	/* height: 70vh; */
+	/* background-color: #a9e2f8; */
 }
 
 /* HELPERS */

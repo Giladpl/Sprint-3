@@ -2,7 +2,8 @@
 	/* padding-left: 60px;
 	margin: 10px auto; */
 	display: grid;
-  background-color: #A9E2F8;
+	height: 80vh;
+  background-color: #DAEBF2;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
 }

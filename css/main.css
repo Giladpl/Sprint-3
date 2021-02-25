@@ -3,6 +3,7 @@
 @import "./basic/helpers.css";
 @import "./basic/fonts.css";
 @import "../css/apps/keep/cmps/note-todos.cmp.css";
+@import "../css/apps/mail/cmps/email-filter.cmp.css";
 @import "../css/apps/mail/cmps/email-list.cmp.css";
 @import "../css/apps/mail/cmps/email-preview.cmp.css";
 @import "../css/apps/mail/cmps/email-side-menu.cmp.css";

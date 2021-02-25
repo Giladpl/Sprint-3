@@ -1,14 +1,24 @@
-.email-side-menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.email-side-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-right: 1px solid grey;
 }
 
-.btn-side-menu{
-  background-color: inherit;
-  /* border: none; */
-  width: 150px;
-  height: 30px;
+.btn-side-menu {
+	background-color: inherit;
+	border: none;
+	width: 100%;
+	height: 30px;
+	text-align: left;
+	margin-bottom: 20px;
+	font-size: 17px;
+}
 
+.btn-side-menu >* {
+margin-right: 20px;
+}
 
+.btn-side-menu:hover {
+	outline: 1px solid black
 }
