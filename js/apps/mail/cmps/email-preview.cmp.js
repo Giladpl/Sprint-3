@@ -7,16 +7,10 @@ export default {
                 <p class="subject">{{email.subject}}</p>
             </div>
             <p class="sentAt">{{sentAtConversion}}</p>
-			<button @click="deleteEmail" class="trash-btn-preview"><img src="../../../../img/trash.png" width="20"></button>
 			<span class="read-btn-preview"><img :src="isReadSrc" width="20"></span>
         </section>
         `,
-	methods: {
-		deleteEmail(ev) {
-			ev.stopPropagation();
-			console.log(this.email.id);
-		},
-	},
+	methods: {},
 	computed: {
 		sentAtConversion() {
 			return new Date().toDateString(this.email.sentAt);

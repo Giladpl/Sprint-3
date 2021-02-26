@@ -1,32 +1,36 @@
 import { emailService } from '../services/email.service.js';
-import { eventBus } from "../../../services/event-bus.service.js"
+import { eventBus } from '../../../services/event-bus.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailSideMenu from '../cmps/email-side-menu.cmp.js';
-
 
 export default {
 	template: `
         <section class="email-app">
 			<email-filter @filtered="setFilter" />
 			<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent"/>
-			<email-list @emailRead="changeToRead" :emails="emailsToShow"/>
+			<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
         </section>
     `,
 	data() {
 		return {
 			emails: null,
 			filterBy: null,
-			emailType: 'inbox'
+			emailType: 'inbox',
 		};
 	},
 	methods: {
 		loadEmails() {
 			emailService.query().then((emails) => {
-				console.log('load',this.emailType);
-				if (this.emailType === 'inbox') this.emails = emails.filter((email) => !email.isSent);
-				else if (this.emailType === 'sent') this.emails = emails.filter((email) => email.isSent)
+				console.log('load', this.emailType);
+				if (this.emailType === 'inbox')
+					this.emails = emails.filter((email) => !email.isSent);
+				else if (this.emailType === 'sent')
+					this.emails = emails.filter((email) => email.isSent);
 			});
+		},
+		deleteEmail(email) {
+			emailService.removeEmail(email.id).then(this.loadEmails);
 		},
 		setFilter(filterBy) {
 			this.filterBy = filterBy;
@@ -44,19 +48,19 @@ export default {
 		},
 		updateInbox(type) {
 			this.emailType = type;
-			console.log(this.emailType);
+			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		updateSent(type) {
 			this.emailType = type;
-			console.log(this.emailType);
+			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		typeDisplay(type) {
 			this.emailType = type;
-			console.log('display',this.emailType);
+			// console.log('display', this.emailType);
 			this.loadEmails();
-		}
+		},
 	},
 	computed: {
 		emailsToShow() {
@@ -74,12 +78,12 @@ export default {
 	},
 	created() {
 		console.log('create', this.emailType);
-		eventBus.$on('emailType', this.typeDisplay)
+		eventBus.$on('emailType', this.typeDisplay);
 		this.loadEmails();
 	},
-	destroyed(){
-        // eventBus.$off('emailType', this.typeDisplay)
-    },
+	destroyed() {
+		// eventBus.$off('emailType', this.typeDisplay)
+	},
 	components: {
 		emailList,
 		emailFilter,
