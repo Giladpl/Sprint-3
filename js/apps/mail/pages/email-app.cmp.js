@@ -8,8 +8,9 @@ export default {
 	template: `
         <section class="email-app">
 			<email-filter @filtered="setFilter" />
-			<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent"/>
+			<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
 			<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
+			<email-compose v-if="isCompose" @newMail="sendNewMail"/>
         </section>
     `,
 	data() {
@@ -17,6 +18,7 @@ export default {
 			emails: null,
 			filterBy: null,
 			emailType: 'inbox',
+			isCompose: false
 		};
 	},
 	methods: {
@@ -60,6 +62,16 @@ export default {
 			this.emailType = type;
 			// console.log('display', this.emailType);
 			this.loadEmails();
+		},
+		sendNewMail(newMail) {
+			const mailToSend = emailService.getEmptySentEmail();
+			mailToSend.to = newMail.to;
+			mailToSend.subject = newMail.subject;
+			mailToSend.body = newMail.body;
+			emailService.saveEmail(mailToSend);
+		},
+		onCompose() {
+			this.isCompose = !this.isCompose;
 		},
 	},
 	computed: {

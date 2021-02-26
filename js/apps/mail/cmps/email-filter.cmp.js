@@ -18,14 +18,11 @@ export default {
 	},
 	methods: {
 		setFilter() {
-			// console.log({ ...this.filterBy });
 			this.$emit('filtered', { ...this.filterBy });
 		},
 		selectFilter(selectedFilter) {
 			this.filterBy.filterType = selectedFilter.target.value;
 			this.$emit('filtered', { ...this.filterBy });
-			// console.log(this.filterBy.filterType);
 		},
-	},
-	computed: {},
+	}
 };

@@ -11,9 +11,6 @@ export default {
                 <textarea v-model="newMail.body" rows="10" cols="50"></textarea>
                 <button @click.prevent="sendMail">Send</button>
             </form>
-
-              
-
             </section>`,
 	data() {
 		return {
