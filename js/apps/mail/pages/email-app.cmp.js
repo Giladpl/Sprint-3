@@ -3,14 +3,15 @@ import { eventBus } from '../../../services/event-bus.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailSideMenu from '../cmps/email-side-menu.cmp.js';
+import emailCompose from '../cmps/email-compose.cmp.js';
 
 export default {
 	template: `
         <section class="email-app">
-			<email-filter @filtered="setFilter" />
-			<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
-			<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
-			<email-compose v-if="isCompose" @newMail="sendNewMail"/>
+					<email-filter @filtered="setFilter" />
+					<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
+					<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
+					<email-compose v-if="isCompose" @newMail="sendNewMail"/>
         </section>
     `,
 	data() {
@@ -18,7 +19,7 @@ export default {
 			emails: null,
 			filterBy: null,
 			emailType: 'inbox',
-			isCompose: false
+			isCompose: false,
 		};
 	},
 	methods: {
@@ -69,6 +70,7 @@ export default {
 			mailToSend.subject = newMail.subject;
 			mailToSend.body = newMail.body;
 			emailService.saveEmail(mailToSend);
+			this.isCompose = !this.isCompose;
 		},
 		onCompose() {
 			this.isCompose = !this.isCompose;
@@ -100,5 +102,6 @@ export default {
 		emailList,
 		emailFilter,
 		emailSideMenu,
+		emailCompose,
 	},
 };

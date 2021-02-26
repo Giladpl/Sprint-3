@@ -1,8 +1,9 @@
 .email-compose {
 	position: absolute;
-	bottom: 0;
+	bottom: 10vh;
 	right: 0;
   border: 1px solid black;
+	background-color: #DAEBF2;
 }
 
 .email-compose form {
