@@ -12,6 +12,7 @@ p {
 	background-color: #ecf1f7;
 	border: 1px solid gray;
 	margin-bottom: 1px;
+	/* margin-inline-start: 20px; */
 }
 
 .email-preview:hover {
@@ -21,13 +22,14 @@ p {
 .sender-subject-container-preview {
 	display: flex;
 	min-width: 500px;
+
 }
 .subject {
 	/* display: inline-block; */
 	max-width: 25vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .sender {
@@ -74,17 +76,17 @@ p {
 	background-color: #ccdae6;
 }
 
-@media (max-width: 815px){
-	.email-preview{
+@media (max-width: 815px) {
+	.email-preview {
 		/* flex-direction: column; */
 	}
-	.sender-subject-container-preview{
+	.sender-subject-container-preview {
 		flex-direction: column;
 		margin-left: 20px;
 		min-width: 25%;
 	}
 	.sender {
-		margin-left:0;
+		margin-left: 0;
 	}
 	.sentAt {
 		position: unset;
@@ -92,7 +94,17 @@ p {
 	.subject {
 		max-width: 50vw;
 	}
-	.read-btn-preview{
+	.read-btn-preview {
 		display: none;
+	}
+	.email-side-display {
+		background-color: blue;
+		display: none !important;
+	}
+	.email-app {
+		display: block !important;
+	}
+	.trash-btn-preview{
+		padding-top: 32px;
 	}
 }

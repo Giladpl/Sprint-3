@@ -2,9 +2,10 @@
 	background-color: #daebf2;
 	display: grid;
 	padding: 30px;
-	height: 80vh;
+	height: 100vh;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr 8fr;
+	position: relative;
 }
 
 .email-filter {
@@ -22,9 +23,9 @@
 	grid-row: 2 / 3;
 }
 
-.mainbody {
+/* .mainbody {
 	position: absolute;
-	top: 40px; /* Header Height */
-	bottom: 20px; /* Footer Height */
+	top: 40px; 
+	bottom: 20px; 
 	width: 100%;
-}
+} */

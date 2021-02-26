@@ -39,8 +39,9 @@ export default {
 			this.filterBy = filterBy;
 		},
 		changeToRead(email) {
-			email.isRead = true;
-			emailService.saveEmail(email);
+			// email.isRead ? (email.isRead = false) : (email.isRead = true);
+			// email.isRead = true;
+			// emailService.saveEmail(email);
 		},
 		emailConditions(email, txt) {
 			return (
@@ -75,6 +76,11 @@ export default {
 		onCompose() {
 			this.isCompose = !this.isCompose;
 		},
+		toggleIsRead(email) {
+			console.log(email);
+			email.isRead ? (email.isRead = false) : (email.isRead = true);
+			emailService.saveEmail(email);
+		},
 	},
 	computed: {
 		emailsToShow() {
@@ -93,6 +99,7 @@ export default {
 	created() {
 		console.log('create', this.emailType);
 		eventBus.$on('emailType', this.typeDisplay);
+		eventBus.$on('toggleIsRead', this.toggleIsRead);
 		this.loadEmails();
 	},
 	destroyed() {
@@ -103,5 +110,6 @@ export default {
 		emailFilter,
 		emailSideMenu,
 		emailCompose,
+		eventBus,
 	},
 };

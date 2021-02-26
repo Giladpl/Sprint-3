@@ -1,8 +1,10 @@
+import { eventBus } from '../../../services/event-bus.service.js'
+
 export default {
 	props: ['email'],
 	template: `
         <section class="email-preview" :class="isReadClass">
-					<span v-if="!email.isSent" class="read-btn-preview"><img :src="isReadSrc" width="20"></span>
+					<span v-if="!email.isSent" class="read-btn-preview"><img @click.prevent="toggleIsRead" :src="isReadSrc" width="20"></span>
 					<div class="sender-subject-container-preview">
 						<p class="sender">From: {{email.sender}}</p>
 						<p v-if="email.to" class="to">To: {{email.to}}</p>
@@ -11,7 +13,11 @@ export default {
 					</div>
         </section>
         `,
-	methods: {},
+	methods: {
+		toggleIsRead(){
+			eventBus.$emit('toggleIsRead', this.email)
+		}
+	},
 	computed: {
 		sentAtConversion() {
 			return new Date().toDateString(this.email.sentAt);
@@ -27,5 +33,8 @@ export default {
 				? '../../../../img/email-read.png'
 				: '../../../../img/email-un-read.png';
 		},
+	},
+	components: {
+		eventBus,
 	},
 };
