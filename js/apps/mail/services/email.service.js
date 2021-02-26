@@ -101,6 +101,7 @@ function getEmptySentEmail(){
 		body: null,
 		sentAt: Date.now(),
 		isSent: true,
+		isRead: true,
 	}
 }
 
