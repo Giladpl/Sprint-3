@@ -1,0 +1,46 @@
+.book-filter {
+	background-color: #daebf2;
+	padding-top: 40px;
+	padding-bottom: 25px;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.192);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.book-filter label {
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.book-filter input {
+	background-color: inherit;
+	box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.192);
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.price-input {
+	width: 90px;
+}
+
+.search-btn {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 0.1em solid #daebf2;
+	border-radius: 10px;
+	box-sizing: border-box;
+	font-weight: 300;
+	color: #daebf2;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #262322;
+}
+
+.search-btn:hover {
+	background-color: #daebf2;
+	color: #262322;
+	border: 0.1em solid #262322;
+}

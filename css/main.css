@@ -15,3 +15,7 @@
 @import "../css/apps/keep/cmps/keep-filter.cmp.css";
 @import "../css/apps/mail/cmps/email-filter.cmp.css";
 @import "../css/pages/home-page.css";
+@import "../css/apps/book/pages/book-app.cmp.css";
+@import "../css/apps/book/cmps/book-filter.cmp.css";
+@import "../css/apps/book/cmps/book-add.cmp.css";
+@import "../css/apps/book/pages/book-details.cmp.css";

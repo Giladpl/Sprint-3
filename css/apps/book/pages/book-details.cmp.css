@@ -1,0 +1,136 @@
+.book-details {
+	padding: 20px;
+	text-align: center;
+}
+
+.book-details img {
+	margin-bottom: 15px;
+}
+
+.book-details .book-detail {
+	margin-bottom: 15px;
+}
+
+.highPrice {
+	color: red;
+}
+
+.lowPrice {
+	color: green;
+}
+
+.sale {
+	font-size: 22px;
+}
+
+.save-review-btn {
+	padding: 0.35em 1.5em;
+	border: 0.1em solid #262322;
+	margin: 1em 5.5em 1em 5.5em;
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-weight: 300;
+	color: #daebf2;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #262322;
+}
+
+.close-btn:hover,
+.save-review-btn:hover,
+.prev-page-btn:hover,
+.next-page-btn:hover {
+	background-color: #daebf2;
+	color: #262322;
+}
+
+.details-btn {
+	margin: 0;
+}
+
+.more-btn {
+	margin-top: 10px;
+	border-bottom: 1px solid #262322;
+	cursor: pointer;
+}
+
+.book-description {
+	margin-bottom: 15px;
+}
+
+/* RATE */
+
+.rating {
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.rating > * {
+	margin-bottom: 10px;
+}
+
+.review-rate {
+	padding-left: 0;
+}
+
+.review-list {
+	margin-bottom: 40px;
+}
+
+.review-list > *:not(:last-child) {
+	border-bottom: 1px solid #262322;
+}
+
+.fa-star {
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 20px;
+}
+
+.fill {
+	color: orange;
+}
+
+.remove-btn {
+	padding: 0.35em 0.5em;
+	border: 0.1em solid #262322;
+	border-radius: 0.12em;
+	text-decoration: none;
+	color: #daebf2;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #262322;
+}
+
+.remove-btn:hover {
+	background-color: #daebf2;
+	color: #262322;
+}
+
+.save-review-btn {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.prev-page-btn,
+.next-page-btn,
+.close-btn {
+	padding: 0.35em 1.5em;
+	border: 0.1em solid #262322;
+	/* margin: 1em 5.5em 1em 5.5em; */
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-weight: 300;
+	color: #daebf2;
+	text-align: center;
+	transition: all 0.2s;
+	background-color: #262322;
+}
+
+.close-div {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}

@@ -4,14 +4,15 @@ import noteImg from '../cmps/note-img.cmp.js';
 import noteVid from '../cmps/note-vid.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import keepFilter from '../cmps/keep-filter.cmp.js';
-import keepAdd from '../cmps/keep-add.cmp.js'
+import keepAdd from '../cmps/keep-add.cmp.js';
+import keepList from '../cmps/keep-list.cmp.js'
 
 export default {
 	template: `
         <section class="keeps-app">
 			<keep-filter class="keep-filter" @filtered="setFilter"/>
 			<keep-add @added="addKeep"/>
-			<div class="keep-content"  :keeps="keepsToShow">
+			<div class="keep-content" :keeps="keepsToShow">
 				<div v-for="keep in keeps" :key="keep.id">
 					<component :is="keep.type" :id="keep.id" :info="keep.info" :pin="keep.isPinned" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo" @setTitle="updateTitle" @togglePin="updateIsPinned"></component>
 				</div>
