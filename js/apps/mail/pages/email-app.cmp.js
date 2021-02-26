@@ -20,6 +20,7 @@ export default {
 			filterBy: null,
 			emailType: 'inbox',
 			isCompose: false,
+			readPercentage: null,
 		};
 	},
 	methods: {
@@ -38,11 +39,20 @@ export default {
 		setFilter(filterBy) {
 			this.filterBy = filterBy;
 		},
-		changeToRead(email) {
-			// email.isRead ? (email.isRead = false) : (email.isRead = true);
-			// email.isRead = true;
-			// emailService.saveEmail(email);
+		toggleIsRead(email) {
+			email.isRead = !email.isRead;
+			emailService.saveEmail(email);
+			this.updateProgressBar();
 		},
+		changeToRead(email) {
+			email.isRead = true;
+			emailService.saveEmail(email);
+		},
+		updateProgressBar() {
+			const readEmails = this.emails.filter((email) => email.isRead === true);
+			this.readPercentage = ((readEmails.length / this.emails.length) * 100).toFixed(2);
+		},
+
 		emailConditions(email, txt) {
 			return (
 				email.sender.toLowerCase().includes(txt) ||
@@ -76,11 +86,6 @@ export default {
 		onCompose() {
 			this.isCompose = !this.isCompose;
 		},
-		toggleIsRead(email) {
-			console.log(email);
-			email.isRead ? (email.isRead = false) : (email.isRead = true);
-			emailService.saveEmail(email);
-		},
 	},
 	computed: {
 		emailsToShow() {
@@ -95,11 +100,19 @@ export default {
 					return this.emailConditions(email, byTxt) && !email.isRead;
 			});
 		},
+		progressBar() {},
+	},
+	watch: {
+		readPercentage() {
+			eventBus.$emit('changeBarSize', this.readPercentage);
+		},
 	},
 	created() {
-		console.log('create', this.emailType);
+		// console.log('create', this.emailType);
 		eventBus.$on('emailType', this.typeDisplay);
+		eventBus.$on('emailRead', this.changeToRead);
 		eventBus.$on('toggleIsRead', this.toggleIsRead);
+		eventBus.$on('deleteEmail', this.deleteEmail);
 		this.loadEmails();
 	},
 	destroyed() {

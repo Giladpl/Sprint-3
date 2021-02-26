@@ -44,7 +44,13 @@ export default {
 		loadEmail() {
 			const emailId = this.$route.params.emailId;
 			// console.log(this.$route.params);
-			emailService.getById(emailId).then((email) => (this.email = email));
+			emailService
+				.getById(emailId)
+				.then((email) => (this.email = email))
+		},
+		markEmailRead() {
+			this.email.isRead = true;
+			emailService.saveMail(this.email);
 		},
 		deleteEmail() {
 			emailService.removeEmail(this.email.id);

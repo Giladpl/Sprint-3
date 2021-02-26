@@ -1,4 +1,4 @@
-import { eventBus } from '../../../services/event-bus.service.js'
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
 	props: ['email'],
@@ -10,13 +10,20 @@ export default {
 						<p v-if="email.to" class="to">To: {{email.to}}</p>
 						<p class="subject">Subject: {{email.subject}}</p>
 						<p class="sentAt">{{sentAtConversion}}</p>
+						<button @click.prevent="deleteEmail" class="trash-btn-preview"><img src="../../../../img/trash.png" width="20"></button>
 					</div>
         </section>
         `,
 	methods: {
-		toggleIsRead(){
-			eventBus.$emit('toggleIsRead', this.email)
-		}
+		toggleIsRead() {
+			eventBus.$emit('toggleIsRead', this.email);
+		},
+		deleteEmail() {
+			eventBus.$emit('deleteEmail', this.email);
+		},
+		changeToRead() {
+			eventBus.$emit('emailRead', this.email);
+		},
 	},
 	computed: {
 		sentAtConversion() {

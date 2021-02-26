@@ -1,3 +1,5 @@
+import { eventBus } from '../../../services/event-bus.service.js';
+
 export default {
 	template: `
             <section class="email-side-display">
@@ -6,9 +8,14 @@ export default {
 				<button class="btn-side-menu"><i class="fas fa-star"></i>Starred</button>
 				<button class="btn-side-menu" @click="onSent"><i class="fas fa-share-square"></i>Sent Mail</button>
 				<button class="btn-side-menu"><i class="fab fa-firstdraft"></i>Drafts</button>
+				<div class="progress-bar-container">
+					<div :style="statusBarLength" class="progress-bar">{{readPercentage}}%</div>
+				</div>
             </section>`,
 	data() {
-		return {};
+		return {
+			readPercentage: null,
+		};
 	},
 	methods: {
 		onInbox() {
@@ -20,6 +27,19 @@ export default {
 		composeMail() {
 			this.$emit('openCompose');
 		},
+		updateReadPercents(percentage) {
+			this.readPercentage = percentage;
+		},
 	},
-	computed: {},
+	computed: {
+		statusBarLength() {
+			return { width: this.readPercentage + '%' };
+		},
+	},
+	created() {
+		eventBus.$on('changeBarSize', this.updateReadPercents);
+	},
+	components: {
+		eventBus,
+	},
 };
