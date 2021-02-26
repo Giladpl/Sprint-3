@@ -78,7 +78,6 @@ export default {
 			emailService.saveEmail(mailToSend);
 		},
 		onCompose() {
-			console.log('puki');
 			this.isCompose = !this.isCompose;
 		},
 	},

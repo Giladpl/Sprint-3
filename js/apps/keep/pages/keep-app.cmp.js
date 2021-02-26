@@ -55,7 +55,6 @@ export default {
 			keepService.getById(id)
 				.then((note) => {
 					note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
-					note.info.label = 'hi'
 					keepService.saveNote(note)
 						.then(() => {
 							this.loadKeeps()
