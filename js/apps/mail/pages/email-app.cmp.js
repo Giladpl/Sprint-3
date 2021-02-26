@@ -47,10 +47,14 @@ export default {
 		changeToRead(email) {
 			email.isRead = true;
 			emailService.saveEmail(email);
+			this.updateProgressBar();
 		},
 		updateProgressBar() {
 			const readEmails = this.emails.filter((email) => email.isRead === true);
-			this.readPercentage = ((readEmails.length / this.emails.length) * 100).toFixed(2);
+			this.readPercentage = (
+				(readEmails.length / this.emails.length) *
+				100
+			).toFixed(2);
 		},
 
 		emailConditions(email, txt) {

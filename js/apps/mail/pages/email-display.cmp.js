@@ -48,10 +48,10 @@ export default {
 				.getById(emailId)
 				.then((email) => (this.email = email))
 		},
-		markEmailRead() {
-			this.email.isRead = true;
-			emailService.saveMail(this.email);
-		},
+		// markEmailRead() {
+		// 	this.email.isRead = true;
+		// 	emailService.saveMail(this.email);
+		// },
 		deleteEmail() {
 			emailService.removeEmail(this.email.id);
 			this.$router.push('/mail');

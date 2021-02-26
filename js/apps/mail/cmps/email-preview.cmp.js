@@ -5,7 +5,7 @@ export default {
 	template: `
         <section class="email-preview" :class="isReadClass">
 					<span v-if="!email.isSent" class="read-btn-preview"><img @click.prevent="toggleIsRead" :src="isReadSrc" width="20"></span>
-					<div class="sender-subject-container-preview">
+					<div @click="changeToRead" class="sender-subject-container-preview">
 						<p class="sender">From: {{email.sender}}</p>
 						<p v-if="email.to" class="to">To: {{email.to}}</p>
 						<p class="subject">Subject: {{email.subject}}</p>
@@ -21,7 +21,7 @@ export default {
 		deleteEmail() {
 			eventBus.$emit('deleteEmail', this.email);
 		},
-		changeToRead() {
+		changeToRead() {		
 			eventBus.$emit('emailRead', this.email);
 		},
 	},
