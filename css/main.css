@@ -7,7 +7,6 @@
 @import "../css/apps/mail/cmps/email-list.cmp.css";
 @import "../css/apps/mail/cmps/email-preview.cmp.css";
 @import "../css/apps/mail/cmps/email-compose.cmp.css";
-@import "../css/apps/mail/cmps/email-side-menu.cmp.css";
 @import "../css/apps/mail/pages/email-display.css";
 @import "../css/apps/keep/pages/keep-app.css";
 @import "../css/apps/mail/pages/email-app.css";
@@ -19,3 +18,4 @@
 @import "../css/apps/book/cmps/book-filter.cmp.css";
 @import "../css/apps/book/cmps/book-add.cmp.css";
 @import "../css/apps/book/pages/book-details.cmp.css";
+@import "../css/apps/mail/cmps/email-side-menu.cmp.css";

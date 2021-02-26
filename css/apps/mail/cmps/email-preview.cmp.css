@@ -22,7 +22,6 @@ p {
 .sender-subject-container-preview {
 	display: flex;
 	min-width: 500px;
-
 }
 .subject {
 	/* display: inline-block; */
@@ -76,7 +75,7 @@ p {
 	background-color: #ccdae6;
 }
 
-@media (max-width: 815px) {
+@media (max-width: 870px) {
 	.email-preview {
 		/* flex-direction: column; */
 	}
@@ -97,14 +96,20 @@ p {
 	.read-btn-preview {
 		display: none;
 	}
-	.email-side-display {
-		background-color: blue;
-		display: none !important;
-	}
 	.email-app {
 		display: block !important;
 	}
-	.trash-btn-preview{
+	.trash-btn-preview {
 		padding-top: 32px;
+	}
+	.email-side-app {
+		position: absolute;
+		background-color: inherit;
+		top: 60px;
+	}
+	.burger-menu {
+		display: contents;
+		font-size: x-large;
+		cursor: pointer;
 	}
 }

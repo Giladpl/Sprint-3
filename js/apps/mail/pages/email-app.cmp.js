@@ -8,8 +8,10 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 export default {
 	template: `
         <section class="email-app">
+					<!-- <div class="main-screen" @click="toggleScreen"></div> -->
+					<div hidden class="burger-menu" @click="openMenu">&#x2630;</div>
 					<email-filter @filtered="setFilter" />
-					<email-side-menu class="email-side-app" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
+					<email-side-menu ref="sideMenu" v-if="sideMenu" class="email-side-app" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
 					<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
 					<email-compose v-if="isCompose" @newMail="sendNewMail"/>
         </section>
@@ -21,6 +23,7 @@ export default {
 			emailType: 'inbox',
 			isCompose: false,
 			readPercentage: null,
+			sideMenu: true,
 		};
 	},
 	methods: {
@@ -40,8 +43,6 @@ export default {
 			this.filterBy = filterBy;
 		},
 		toggleIsRead(email) {
-			console.log(email);
-			
 			email.isRead = !email.isRead;
 			emailService.saveEmail(email);
 			this.updateProgressBar();
@@ -68,11 +69,13 @@ export default {
 		},
 		updateInbox(type) {
 			this.emailType = type;
+			this.sideMenu = false;
 			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		updateSent(type) {
 			this.emailType = type;
+			this.sideMenu = false;
 			// console.log(this.emailType);
 			this.loadEmails();
 		},
@@ -91,6 +94,12 @@ export default {
 		},
 		onCompose() {
 			this.isCompose = !this.isCompose;
+		},
+		openMenu() {
+			this.sideMenu = !this.sideMenu;
+			// console.log(this.$refs.sideMenu);
+			// document.querySelector('.email-side-app').classList.toggle('hidden');
+			// console.log(this.$refs.sideMenu);;
 		},
 	},
 	computed: {
@@ -125,7 +134,8 @@ export default {
 		eventBus.$off('emailType', this.typeDisplay);
 		eventBus.$off('emailRead', this.changeToRead);
 		eventBus.$off('toggleIsRead', this.toggleIsRead);
-		eventBus.$off('deleteEmail', this.deleteEmail);	},
+		eventBus.$off('deleteEmail', this.deleteEmail);
+	},
 	components: {
 		emailList,
 		emailFilter,
