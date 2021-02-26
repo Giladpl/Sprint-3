@@ -40,6 +40,8 @@ export default {
 			this.filterBy = filterBy;
 		},
 		toggleIsRead(email) {
+			console.log(email);
+			
 			email.isRead = !email.isRead;
 			emailService.saveEmail(email);
 			this.updateProgressBar();
@@ -120,8 +122,10 @@ export default {
 		this.loadEmails();
 	},
 	destroyed() {
-		// eventBus.$off('emailType', this.typeDisplay)
-	},
+		eventBus.$off('emailType', this.typeDisplay);
+		eventBus.$off('emailRead', this.changeToRead);
+		eventBus.$off('toggleIsRead', this.toggleIsRead);
+		eventBus.$off('deleteEmail', this.deleteEmail);	},
 	components: {
 		emailList,
 		emailFilter,

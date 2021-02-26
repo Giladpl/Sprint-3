@@ -19,9 +19,9 @@
 .progress-bar-container{
 	width: 150px;
 	height: 20px;
-	border: 1px solid black;
 	text-align: center;
 	font-weight: 600;
+	border: 1px solid black;
 }
 
 .progress-bar{

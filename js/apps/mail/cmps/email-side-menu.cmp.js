@@ -39,6 +39,9 @@ export default {
 	created() {
 		eventBus.$on('changeBarSize', this.updateReadPercents);
 	},
+	destroyed() {
+		eventBus.$off('changeBarSize', this.updateReadPercents);
+	},
 	components: {
 		eventBus,
 	},
