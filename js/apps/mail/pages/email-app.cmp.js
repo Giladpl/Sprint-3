@@ -29,7 +29,7 @@ export default {
 	methods: {
 		loadEmails() {
 			emailService.query().then((emails) => {
-				console.log('load', this.emailType);
+				// console.log('load', this.emailType);
 				if (this.emailType === 'inbox')
 					this.emails = emails.filter((email) => !email.isSent);
 				else if (this.emailType === 'sent')
@@ -57,7 +57,7 @@ export default {
 			this.readPercentage = (
 				(readEmails.length / this.emails.length) *
 				100
-			).toFixed(2);
+			).toFixed(1);
 		},
 
 		emailConditions(email, txt) {
@@ -69,13 +69,13 @@ export default {
 		},
 		updateInbox(type) {
 			this.emailType = type;
-			this.sideMenu = false;
+			// this.sideMenu = false; 
 			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		updateSent(type) {
 			this.emailType = type;
-			this.sideMenu = false;
+			// this.sideMenu = false;
 			// console.log(this.emailType);
 			this.loadEmails();
 		},

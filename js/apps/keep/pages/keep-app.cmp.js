@@ -5,15 +5,15 @@ import noteVid from '../cmps/note-vid.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import keepFilter from '../cmps/keep-filter.cmp.js';
 import keepAdd from '../cmps/keep-add.cmp.js';
-import keepList from '../cmps/keep-list.cmp.js'
+import keepList from '../cmps/keep-list.cmp.js';
 
 export default {
 	template: `
         <section class="keeps-app">
 			<keep-filter class="keep-filter" @filtered="setFilter"/>
 			<keep-add @added="addKeep"/>
-			<div class="keep-content" :keeps="keepsToShow">
-				<div v-for="keep in keeps" :key="keep.id">
+			<div class="keep-content">
+				<div v-for="keep in keepsToShow" :key="keep.id">
 					<component :is="keep.type" :id="keep.id" :info="keep.info" :pin="keep.isPinned" @setTxt="updateTxt" @setColor="updateColor" @remove="removeNote" @addTodo="addTodo" @setTitle="updateTitle" @togglePin="updateIsPinned"></component>
 				</div>
 			</div>
@@ -23,14 +23,14 @@ export default {
 		return {
 			keeps: null,
 			filterBy: null,
-		}
+		};
 	},
 	methods: {
 		loadKeeps() {
 			keepService.query().then((keeps) => {
-				const pinned = keeps.filter(keep => keep.isPinned);
-				const notPinned = keeps.filter(keep => !keep.isPinned);
-				this.keeps = [...pinned, ...notPinned]
+				const pinned = keeps.filter((keep) => keep.isPinned);
+				const notPinned = keeps.filter((keep) => !keep.isPinned);
+				this.keeps = [...pinned, ...notPinned];
 				console.log(this.keeps);
 			});
 		},
@@ -53,13 +53,11 @@ export default {
 			keepService.removeNote(id).then(this.loadKeeps);
 		},
 		addTodo(todo, id) {
-			keepService.getById(id)
-				.then((note) => {
-					note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
-					keepService.saveNote(note)
-						.then(() => {
-							this.loadKeeps()
-						})
+			keepService.getById(id).then((note) => {
+				note.info.todos.push({ txt: todo, doneAt: null, isDone: false });
+				keepService.saveNote(note).then(() => {
+					this.loadKeeps();
+				});
 			});
 		},
 		updateTitle(title, id) {
@@ -70,11 +68,12 @@ export default {
 			});
 		},
 		noteConditions(note, txt) {
-			if (note.type === 'noteTxt')  return note.info.txt.toLowerCase().includes(txt);
-			if (note.type === 'noteImg' ||  note.type === 'noteVid') 
-				return note.info.title.toLowerCase().includes(txt)
+			if (note.type === 'noteTxt')
+				return note.info.txt.toLowerCase().includes(txt);
+			if (note.type === 'noteImg' || note.type === 'noteVid')
+				return note.info.title.toLowerCase().includes(txt);
 			if (note.type === 'noteTodos') {
-				return note.info.label?.toLowerCase().includes(txt) 
+				return note.info.label?.toLowerCase().includes(txt);
 				// note.info.todos.forEach(todo => {
 				// 	return todo.txt.toLowerCase().includes(txt)
 				// })
@@ -89,26 +88,25 @@ export default {
 		},
 		addKeep(userAdd) {
 			console.log(userAdd);
-			keepService.addKeep(userAdd)
-				.then(this.loadKeeps)
-		}
+			keepService.addKeep(userAdd).then(this.loadKeeps);
+		},
 	},
 	computed: {
 		keepsToShow() {
 			if (!this.filterBy) return this.keeps;
-			console.log(this.filterBy)
+			console.log(this.filterBy);
 			const byTxt = this.filterBy.txt.toLowerCase();
 			return this.keeps.filter((note) => {
 				if (this.filterBy.filterType === 'all')
 					return this.noteConditions(note, byTxt);
 				else if (this.filterBy.filterType === 'txt')
-					return this.noteConditions(note, byTxt) && (note.type === 'noteTxt');
+					return this.noteConditions(note, byTxt) && note.type === 'noteTxt';
 				else if (this.filterBy.filterType === 'img')
-					return this.noteConditions(note, byTxt) && (note.type === 'noteImg');
+					return this.noteConditions(note, byTxt) && note.type === 'noteImg';
 				else if (this.filterBy.filterType === 'vid')
-					return this.noteConditions(note, byTxt) && (note.type === 'noteVid');
+					return this.noteConditions(note, byTxt) && note.type === 'noteVid';
 				else if (this.filterBy.filterType === 'todos')
-					return this.noteConditions(note, byTxt) && (note.type === 'noteTodos');
+					return this.noteConditions(note, byTxt) && note.type === 'noteTodos';
 			});
 		},
 	},
@@ -121,6 +119,6 @@ export default {
 		noteVid,
 		noteTodos,
 		keepFilter,
-		keepAdd
+		keepAdd,
 	},
 };

@@ -86,13 +86,13 @@ function query() {
 	return storageService.query(EMAILS_KEY).then((emails) => {
 		if (!emails.length) {
 			utilService.saveToStorage(EMAILS_KEY, gEmails);
-			emails = gEmails;
+			var emails = gEmails;
 		}
 		return emails;
 	});
 }
 
-function getEmptySentEmail(){
+function getEmptySentEmail() {
 	return {
 		// id: storageService._makeId(),
 		sender: 'Me',
@@ -102,7 +102,7 @@ function getEmptySentEmail(){
 		sentAt: Date.now(),
 		isSent: true,
 		isRead: true,
-	}
+	};
 }
 
 function getById(id) {

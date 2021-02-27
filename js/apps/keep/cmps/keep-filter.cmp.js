@@ -1,7 +1,7 @@
 export default {
     template: `
             <section class="keep-filter">
-                <input type="text" @input="setFilter" placeholder="Search an note" v-model="filterBy.txt">
+                <input type="text" @input="setFilter" placeholder="Search a note" v-model="filterBy.txt">
                 <select @change="selectFilter">
                     <option value="all">All</option>
                     <option value="txt">text</option>
