@@ -2,7 +2,7 @@
 	display: grid;
 	position: relative;
 	padding: 50px;
-	height: 100vh;
+	/* height: 100vh; */
 	background-color: #daebf2;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr;
@@ -36,10 +36,6 @@
 	max-width: 600px;
 	overflow: auto;
 	line-height: 1.5;
-}
-
-.in-display-menu {
-	background-color: #daebf2;
 }
 
 .send-btn,

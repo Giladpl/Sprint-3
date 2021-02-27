@@ -6,7 +6,8 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 export default {
 	template: `
 	<section v-if="email" class="email-display">
-		<email-side-menu @openCompose="onCompose" class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
+	<div hidden class="burger-menu" @click="openMenu">&#x2630;</div>
+		<email-side-menu v-if="sideMenu" @openCompose="onCompose" class="in-display-menu" @onInbox="updateInboxDisplay" @onSent="updateSentDisplay"/>
 		<div class="menu-email-container">
 			<div class="sender-subject-container">
 				<div class="email-sender">
@@ -38,6 +39,8 @@ export default {
 			isReply: false,
 			replyMsg: null,
 			isCompose: false,
+			sideMenu: true,
+
 		};
 	},
 	methods: {
@@ -81,6 +84,12 @@ export default {
 		},
 		onCompose() {
 			this.isCompose = !this.isCompose;
+		},
+		openMenu() {
+			this.sideMenu = !this.sideMenu;
+			// console.log(this.$refs.sideMenu);
+			// document.querySelector('.email-side-app').classList.toggle('hidden');
+			// console.log(this.$refs.sideMenu);;
 		},
 	},
 	computed: {},
