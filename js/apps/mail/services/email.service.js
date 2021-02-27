@@ -78,6 +78,129 @@ const gEmails = [
 		sentAt: 1551133930594,
 		isSent: false,
 	},
+	{
+		id: storageService._makeId(),
+		sender: `School of Calisthenics`,
+		subject: `💥 Get 25% OFF Annual Memberships 💥
+    `,
+		body: `It's nearly the start of a new decade + a great opportunity to think about investing in yourself and your future. Forget about yo-yo diets and programme hopping, and commit to consistency and invest in your physical pension.
+
+		GET 50% OFF ANNUAL MEMBERSHIPS
+		
+		Grab yourself a Standard Annual Membership for £74.25 (saving £24.75) or our V.I.P Annual Membership for £187.50 (saving £62.50).
+		
+		USE CODE: NEWDECADE
+		Offer ends 10 January 2021.
+		We hope to see you in class!
+		
+		Tim and Jacko`,
+		isRead: false,
+		sentAt: 1551133930594,
+		isSent: false,
+	},
+	{
+		id: storageService._makeId(),
+		sender: `OWM Team
+`,
+		subject: `OpenWeatherMap Account confirmation
+    `,
+		body: `Dear Customer!
+
+		Thank you for choosing OpenWeatherMap!
+		
+		Please confirm your email address to help us ensure your account is always protected.
+		 
+		Verify your email
+		For further technical questions and support, please contact us at info@openweathermap.org
+		
+		
+		We are looking forward to cooperating with you!
+		
+		
+		Best Regards,
+		OpenWeather team`,
+		isRead: true,
+		sentAt: 1551133930594,
+		isSent: false,
+	},
+	{
+		id: storageService._makeId(),
+		sender: `
+		egghead
+`,
+		subject: `Sign-in link for egghead
+
+    `,
+		body: `Hi! 👋
+
+		You asked us to send you a sign-in link for egghead.
+		
+		this link expires in 24 hours. After that you will need to request another link.
+		this link can only be used once. After you click the link it will no longer work.
+		you can always request another link!
+		==> Click here to access egghead
+		
+		This link expires in 24 hours and can only be used once. You can always request another link to be sent if this one has been used or is expired.`,
+		isRead: true,
+		sentAt: 1551133930594,
+		isSent: false,
+	},
+	{
+		id: storageService._makeId(),
+		sender: 'Me',
+		subject: `Pinky and the brain`,
+		to: `Brain`,
+		body: `HI guys, what are we going to do tonight? Again trying to take over the world?`,
+		sentAt: Date.now(),
+		isSent: true,
+		isRead: true,
+	},
+	{
+		id: storageService._makeId(),
+		sender: 'Me',
+		subject: `Best of Hodor's quotes:`,
+		to: `David Benioff`,
+		body: `“Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor...
+		`,
+		sentAt: Date.now(),
+		isSent: true,
+		isRead: true,
+	},
+	{
+		id: storageService._makeId(),
+		sender: 'Me',
+		subject: `Best of Hodor's quotes:`,
+		to: `Cpt. Hook`,
+		body: `Ahoy matey, yar lorem ipsum text is awash with brigands, bilge and more. Get swashbuckling with this trendy looking pirate placeholder text generator.
+
+		Lookout flogging bilge rat main sheet bilge water nipper fluke to go on account heave down clap of thunder. Reef sails six pounders skysail code of conduct sloop cog Yellow Jack gunwalls grog blossom starboard. Swab black jack ahoy Brethren of the Coast schooner poop deck main sheet topmast furl marooned.
+		`,
+		sentAt: Date.now(),
+		isSent: true,
+		isRead: true,
+	},
+	{
+		id: storageService._makeId(),
+		sender: 'Me',
+		subject: `Coffee`,
+		to: `Coffe-Beans`,
+		body: `I love you so much coffee-beans!! You are the best!
+		`,
+		sentAt: Date.now(),
+		isSent: true,
+		isRead: true,
+	},
+	{
+		id: storageService._makeId(),
+		sender: 'Me',
+		subject: `Smurfs`,
+		to: `Gargamel`,
+		body: `Yo Bro, what's up with you and stinky Hathatul? What about leaving the smurfs alone?
+		`,
+		sentAt: Date.now(),
+		isSent: true,
+		isRead: true,
+	},
 ];
 
 const EMAILS_KEY = 'emails';

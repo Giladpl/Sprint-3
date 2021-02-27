@@ -32,13 +32,13 @@ p {
 }
 
 .sender {
-	min-width: 150px;
+	min-width: 250px;
 	margin-left: 10px;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 
 .to {
-	min-width: 100px;
+	min-width: 250px;
 }
 
 .sentAt {
@@ -75,7 +75,7 @@ p {
 	background-color: #ccdae6;
 }
 
-@media (max-width: 870px) {
+@media (max-width: 1000px) {
 	.email-preview {
 		/* flex-direction: column; */
 	}
