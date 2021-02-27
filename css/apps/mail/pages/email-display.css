@@ -32,10 +32,11 @@
 
 .email-body {
 	margin-left: 40px;
-	height: 300px;
+	height: 250px;
 	max-width: 600px;
 	overflow: auto;
 	line-height: 1.5;
+	margin-bottom: 10px;
 }
 
 .send-btn,
@@ -53,4 +54,47 @@
 
 .reply-btn-container {
 	margin-bottom: 20px;
+}
+
+.reply-email-btn {
+	margin-left: 40px;
+}
+
+.reply-container {
+	margin-left: 40px;
+}
+
+@media (max-width: 1000px) {
+	.email-display {
+		grid-template-columns: 1fr;
+		grid-template-rows: 50px 1fr;
+		padding: 25px;
+	}
+
+	.email-side-display {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+	}
+
+	.menu-email-container {
+		grid-column: 1/ 2;
+		grid-row: 2 / 3;
+	}
+
+	.reply-container {
+		margin-left: 0;
+	}
+
+	.reply-email-btn {
+		margin-left: 0;
+	}
+
+	.email-body {
+		margin-left: 0;
+	}
+
+	.sender-subject-container {
+		margin-top: 20px;
+		margin-left: 0;
+	}
 }

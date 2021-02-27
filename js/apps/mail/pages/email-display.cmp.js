@@ -26,7 +26,7 @@ export default {
 			</div>
 			<div v-if="isReply" class="reply-container">
 				<p>To: {{email.sender}}</p>
-				<textarea rows="4" cols="100" placeholder="Enter your reply" v-model="replyMsg"></textarea>
+				<textarea rows="7" cols="82" placeholder="Enter your reply" v-model="replyMsg"></textarea>
 				<button class="send-btn" @click="replyEmail"><img src="../../../../img/sent-email.png" width="25"></button>
 			</div>
 		</div>

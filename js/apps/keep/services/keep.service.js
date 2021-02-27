@@ -24,7 +24,7 @@ let gKeeps = [
 	{
 		id: storageService._makeId(),
 		type: 'noteVid',
-		isPinned: false,
+		isPinned: true,
 		info: {
 			url: 'https://www.youtube.com/embed/2Vv-BfVoq4g',
 			title: 'Ed Sheeran - Perfect',
@@ -97,7 +97,7 @@ let gKeeps = [
 	{
 		id: storageService._makeId(),
 		type: 'noteVid',
-		isPinned: true,
+		isPinned: false,
 		info: {
 			url: 'https://www.youtube.com/embed/Jtauh8GcxBY',
 			title: 'Lewis Capaldi - Before You Go',
