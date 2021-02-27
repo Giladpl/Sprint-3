@@ -69,7 +69,7 @@ export default {
 		},
 		updateInbox(type) {
 			this.emailType = type;
-			// this.sideMenu = false; 
+			// this.sideMenu = false;
 			// console.log(this.emailType);
 			this.loadEmails();
 		},
@@ -101,6 +101,9 @@ export default {
 			// document.querySelector('.email-side-app').classList.toggle('hidden');
 			// console.log(this.$refs.sideMenu);;
 		},
+		closeCompose() {
+			this.isCompose = false;
+		},
 	},
 	computed: {
 		emailsToShow() {
@@ -128,6 +131,7 @@ export default {
 		eventBus.$on('emailRead', this.changeToRead);
 		eventBus.$on('toggleIsRead', this.toggleIsRead);
 		eventBus.$on('deleteEmail', this.deleteEmail);
+		eventBus.$on('closeCompose', this.closeCompose);
 		this.loadEmails();
 	},
 	destroyed() {
@@ -135,6 +139,7 @@ export default {
 		eventBus.$off('emailRead', this.changeToRead);
 		eventBus.$off('toggleIsRead', this.toggleIsRead);
 		eventBus.$off('deleteEmail', this.deleteEmail);
+		eventBus.$off('closeCompose', this.closeCompose);
 	},
 	components: {
 		emailList,

@@ -75,10 +75,12 @@ p {
 	background-color: #ccdae6;
 }
 
+/* .reply-area {
+	width: 200px;
+	height: 100px;
+} */
+
 @media (max-width: 1000px) {
-	.email-preview {
-		/* flex-direction: column; */
-	}
 	.sender-subject-container-preview {
 		flex-direction: column;
 		margin-left: 20px;
@@ -109,8 +111,12 @@ p {
 		display: flex;
 	}
 	.burger-menu {
+		position: absolute;
 		display: contents;
 		font-size: x-large;
 		cursor: pointer;
+	}
+	.menu-email-container{
+		width: 45%;
 	}
 }

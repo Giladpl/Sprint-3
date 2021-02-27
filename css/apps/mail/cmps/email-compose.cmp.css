@@ -1,13 +1,34 @@
 .email-compose {
 	position: absolute;
-	bottom: 10vh;
-	right: 0;
+	bottom: 25%;
+	right: 25%;
   border: 1px solid black;
 	background-color: #DAEBF2;
+}
+.email-compose label {
+	margin-left: 10px;
+}
+
+.email-compose div{
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border-bottom: solid black 1px;
+	text-align: center;
+	background-color: rgb(189, 208, 211);
 }
 
 .email-compose form {
 	display: flex;
 	flex-direction: column;
 	width: 500px;
+	padding: 5px 0;
+}
+
+.close-compose-btn{
+	cursor: pointer;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 5px;
+	right: 5px;
 }

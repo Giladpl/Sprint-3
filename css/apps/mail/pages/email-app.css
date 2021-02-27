@@ -2,7 +2,7 @@
 	background-color: #daebf2;
 	display: grid;
 	padding: 30px;
-	height: 100vh;
+	height: 110vh;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr 8fr;
 	position: relative;
@@ -23,9 +23,3 @@
 	grid-row: 2 / 3;
 }
 
-/* .mainbody {
-	position: absolute;
-	top: 40px; 
-	bottom: 20px; 
-	width: 100%;
-} */
