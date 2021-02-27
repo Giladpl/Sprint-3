@@ -6,13 +6,30 @@ const options = {
 	el: '#app',
 	router: myRouter,
 	template: `
-        <section>
+        <section :class="menuClass">
             <user-msg />
-            <app-header />
+            <app-header @toggleMenu="toggleMenu"/>
             <router-view />
             <footer><p> &copy; Coffeerights 2021</p></footer>
         </section>
     `,
+    data() {
+        return {
+            isActive: false
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.isActive = !this.isActive;
+        }
+    },
+    computed: {
+		menuClass() {
+			return {
+				'menu-open': this.isActive,
+			};
+		},
+	},
 	components: {
 		appHeader,
 		userMsg,
