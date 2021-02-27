@@ -4,8 +4,7 @@ export default {
         <div class="main-screen" @click="toggleMenu"></div>
         <div class="main-header">
             <div class="logo-container">
-                <img src="/../img/logo.png" width="40" height="60">
-                <!-- <img src="../../img/logo.png" width="40" height="60"> -->
+                <img src="./../../img/logo.png" width="40" height="60">
                 <h1 class="logo">AppSus</h1>
             </div>
             <nav>
