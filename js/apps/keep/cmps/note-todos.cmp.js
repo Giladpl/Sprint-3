@@ -7,7 +7,7 @@ export default {
                 <h2>Don't forget:</h2>
                 <ul class="todos-list">
                     <li v-for="(todo, idx) in todos">
-                        <note-todo-list :todo='todo'/>
+                        <note-todo-list :todo="todo" :idx="idx" @toggleDone="toggleDone"/>
                     </li>
                 </ul>
                 <form @submit.prevent="addTodo">
@@ -40,8 +40,11 @@ export default {
 			this.$emit('remove', this.id);
 		},
         togglePin() {
-            this.$emit("togglePin", this.id);
-        }
+            this.$emit('togglePin', this.id);
+        },
+		toggleDone(todoIdx) {
+			this.$emit('toggleDone', this.id, todoIdx);
+		}
 	},
 	computed: {
 		isPinned() {
