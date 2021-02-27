@@ -106,6 +106,7 @@ p {
 		position: absolute;
 		background-color: inherit;
 		top: 60px;
+		display: flex;
 	}
 	.burger-menu {
 		display: contents;
