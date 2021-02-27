@@ -12,12 +12,12 @@ export default {
                 </ul>
                 <form @submit.prevent="addTodo">
                     <input class="input-todo" type="text" placeholder="I need to do.." v-model="newTodo">
-                    <button class="add-btn"><img src="../../../../img/add.png" width="20"/></button>
+                    <button class="add-btn"><img src="./img/add.png" width="20"/></button>
                 </form>
 				<div className="note-icons">
-					<button class="pin-btn" :class="isPinned" @click="togglePin"><img src="../../../../img/pin.png" width="20"/></button>
+					<button class="pin-btn" :class="isPinned" @click="togglePin"><img src="./img/pin.png" width="20"/></button>
 					<button class="color-btn"><input class="input-color" type="color" @change="changeColor" v-model="userColor"></button>
-					<button class="trash-btn" @click="removeNote"><img src="../../../../img/trash.png" width="20"/></button>
+					<button class="trash-btn" @click="removeNote"><img src="./img/trash.png" width="20"/></button>
 				</div>
           </section>
           `,

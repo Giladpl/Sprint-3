@@ -2,14 +2,14 @@ export default {
     template: `
             <section class="keep-add">
                 <div class="btn-container">
-                    <button class="txt-btn" @click="onTxt"><img src="../../../../img/txt.png" width="35"/></button>
-                    <button class="list-btn" @click="onTodos"><img src="../../../../img/list.png" width="35"/></button>
-                    <button class="img-btn" @click="onImg"><img src="../../../../img/picture.png" width="35"/></button>
-                    <button class="vid-btn" @click="onVid"><img src="../../../../img/video.png" width="35"/></button>
+                    <button class="txt-btn" @click="onTxt"><img src="./img/txt.png" width="35"/></button>
+                    <button class="list-btn" @click="onTodos"><img src="./img/list.png" width="35"/></button>
+                    <button class="img-btn" @click="onImg"><img src="./img/picture.png" width="35"/></button>
+                    <button class="vid-btn" @click="onVid"><img src="./img/video.png" width="35"/></button>
                 </div>
                 <form @submit.prevent="addKeep">
                     <input class="add-keep-input" list="books" :placeholder="placeholderTxt" v-model="userAdd.userInput">
-                    <button class="add-btn"><img src="../../../../img/add.png" width="15"/></button>
+                    <button class="add-btn"><img src="./img/add.png" width="15"/></button>
                 </form>
             </section>`,
     data() {
