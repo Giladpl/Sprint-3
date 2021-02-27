@@ -8,7 +8,7 @@ export default {
                     <datalist id="books">
                         <option v-for="addOption in addOptions">{{addOption}}</option>
                     </datalist>
-                    <button class="add-book-btn"><img src="../../../../img/add.png" width="15"/></button>
+                    <button class="add-book-btn"><img src="./img/add.png" width="15"/></button>
                 </form>
             </section>`,
     data() {

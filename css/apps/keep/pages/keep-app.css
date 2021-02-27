@@ -56,10 +56,6 @@
 	/* font-size: 35px; */
 }
 
-.trash-btn {
-	background-image: url("../../../../img/trash.png");
-}
-
 .pin-btn:hover,
 .color-btn:hover,
 .trash-btn:hover,

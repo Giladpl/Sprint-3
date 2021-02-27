@@ -21,13 +21,13 @@ export default {
 				{{this.email.body}}
 			</div>
 			<div class="reply-btn-container">
-				<button class="reply-email-btn" @click=replyClick><img src="../../../../img/reply.svg" width="25"></button>
-				<button class="trash-email-btn" @click="deleteEmail"><img src="../../../../img/trash.png" width="25"></button>
+				<button class="reply-email-btn" @click=replyClick><img src="./img/reply.svg" width="25"></button>
+				<button class="trash-email-btn" @click="deleteEmail"><img src="./img/trash.png" width="25"></button>
 			</div>
 			<div v-if="isReply" class="reply-container">
 				<p>To: {{email.sender}}</p>
 				<textarea rows="7" cols="82" placeholder="Enter your reply" v-model="replyMsg"></textarea>
-				<button class="send-btn" @click="replyEmail"><img src="../../../../img/sent-email.png" width="25"></button>
+				<button class="send-btn" @click="replyEmail"><img src="./img/sent-email.png" width="25"></button>
 			</div>
 		</div>
 		<email-compose v-if="isCompose" @newMail="sendNewMail"/>

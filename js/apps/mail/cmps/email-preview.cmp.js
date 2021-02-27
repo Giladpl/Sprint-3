@@ -10,7 +10,7 @@ export default {
 						<p v-if="email.to" class="to">To: {{email.to}}</p>
 						<p class="subject">Subject: {{email.subject}}</p>
 						<p class="sentAt">{{sentAtConversion}}</p>
-						<button @click.prevent="deleteEmail" class="trash-btn-preview"><img src="../../../../img/trash.png" width="20"></button>
+						<button @click.prevent="deleteEmail" class="trash-btn-preview"><img src="./img/trash.png" width="20"></button>
 					</div>
         </section>
         `,
@@ -37,8 +37,8 @@ export default {
 		},
 		isReadSrc() {
 			return this.email.isRead
-				? '../../../../img/email-read.png'
-				: '../../../../img/email-un-read.png';
+				? './img/email-read.png'
+				: './img/email-un-read.png';
 		},
 	},
 	components: {
