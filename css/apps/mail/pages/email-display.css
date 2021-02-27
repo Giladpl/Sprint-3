@@ -91,10 +91,12 @@
 
 	.email-body {
 		margin-left: 0;
+		max-width: 80%;
 	}
 
 	.sender-subject-container {
 		margin-top: 20px;
 		margin-left: 0;
+		max-width: 80%;
 	}
 }
