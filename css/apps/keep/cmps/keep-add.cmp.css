@@ -37,3 +37,10 @@
 .vid-btn:hover {
 	opacity: 0.6;
 }
+
+@media (max-width: 360px) {
+	.add-keep-input {
+		width: 200px;
+		margin-bottom: 20px;
+	}
+}

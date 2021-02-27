@@ -101,3 +101,11 @@
 .isPinned {
 	opacity: 1;
 }
+
+@media (max-width: 360px) {
+	.keep-content {
+		padding: 5px;
+		padding-top: 25px;
+		gap: 5px;
+	}
+}

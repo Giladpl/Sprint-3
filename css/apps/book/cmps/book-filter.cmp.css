@@ -44,3 +44,27 @@
 	color: #262322;
 	border: 0.1em solid #262322;
 }
+
+@media (max-width: 360px) {
+	.book-filter {
+		flex-direction: column;
+	}
+
+	.book-filter label {
+		margin-bottom: 10px;
+		margin-right: 0;
+	}
+
+	.book-filter form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.book-filter form > * {
+		margin-bottom: 5px;
+	}
+
+	.price-input {
+		width: 100%;
+	}
+}

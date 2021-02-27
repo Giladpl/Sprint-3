@@ -29,7 +29,7 @@ let gKeeps = [
 			url: 'https://www.youtube.com/embed/2Vv-BfVoq4g',
 			title: 'Ed Sheeran - Perfect',
 			style: {
-				backgroundColor: '#a9f8b4',
+				backgroundColor: '#ffa07a',
 			},
 		},
 	},
@@ -84,6 +84,18 @@ let gKeeps = [
 	},
 	{
 		id: storageService._makeId(),
+		type: 'noteImg',
+		isPinned: false,
+		info: {
+			url: 'https://picsum.photos/200/300',
+			title: 'Fun day',
+			style: {
+				backgroundColor: '#ff8585',
+			},
+		},
+	},
+	{
+		id: storageService._makeId(),
 		type: 'noteVid',
 		isPinned: true,
 		info: {
@@ -94,7 +106,25 @@ let gKeeps = [
 			},
 		},
 	},
+	{
+		id: storageService._makeId(),
+		type: 'noteTodos',
+		isPinned: false,
+		info: {
+			label: 'How was it:',
+			todos: [
+				{ txt: 'Learn JS', doneAt: null, isDone: false },
+				{ txt: 'Learn VUE', doneAt: null, isDone: false },
+				{ txt: 'Learn CSS', doneAt: 187111111, isDone: false },
+			],
+			style: {
+				backgroundColor: '#20b2aa',
+			},
+		},
+	},
 ];
+
+//'https://picsum.photos/200/300'
 const KEEPS_KEY = 'keeps';
 
 function query() {
