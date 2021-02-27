@@ -4,6 +4,8 @@
 	align-items: center;
 	margin-right: 30px;
 	height: fit-content;
+	position: fixed;
+	top: 150px;
 }
 
 .btn-side-menu {

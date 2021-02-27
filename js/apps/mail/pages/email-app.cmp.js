@@ -69,19 +69,14 @@ export default {
 		},
 		updateInbox(type) {
 			this.emailType = type;
-			// this.sideMenu = false;
-			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		updateSent(type) {
 			this.emailType = type;
-			// this.sideMenu = false;
-			// console.log(this.emailType);
 			this.loadEmails();
 		},
 		typeDisplay(type) {
 			this.emailType = type;
-			// console.log('display', this.emailType);
 			this.loadEmails();
 		},
 		sendNewMail(newMail) {
@@ -97,9 +92,6 @@ export default {
 		},
 		openMenu() {
 			this.sideMenu = !this.sideMenu;
-			// console.log(this.$refs.sideMenu);
-			// document.querySelector('.email-side-app').classList.toggle('hidden');
-			// console.log(this.$refs.sideMenu);;
 		},
 		closeCompose() {
 			this.isCompose = false;
@@ -126,7 +118,6 @@ export default {
 		},
 	},
 	created() {
-		// console.log('create', this.emailType);
 		eventBus.$on('emailType', this.typeDisplay);
 		eventBus.$on('emailRead', this.changeToRead);
 		eventBus.$on('toggleIsRead', this.toggleIsRead);

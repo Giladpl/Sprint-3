@@ -40,13 +40,11 @@ export default {
 			replyMsg: null,
 			isCompose: false,
 			sideMenu: true,
-
 		};
 	},
 	methods: {
 		loadEmail() {
 			const emailId = this.$route.params.emailId;
-			// console.log(this.$route.params);
 			emailService
 				.getById(emailId)
 				.then((email) => (this.email = email))
@@ -63,7 +61,6 @@ export default {
 			emptyEmail.body = this.replyMsg;
 			emptyEmail.subject = this.email.subject;
 			emptyEmail.to = this.email.sender;
-			// console.log(emptyEmail);
 			emailService.saveEmail(emptyEmail);
 			this.$router.push('/mail');
 		},
@@ -87,14 +84,18 @@ export default {
 		},
 		openMenu() {
 			this.sideMenu = !this.sideMenu;
-			// console.log(this.$refs.sideMenu);
-			// document.querySelector('.email-side-app').classList.toggle('hidden');
-			// console.log(this.$refs.sideMenu);;
 		},
+		closeCompose() {
+			this.isCompose = false;
+		}
 	},
 	computed: {},
 	created() {
 		this.loadEmail();
+		eventBus.$on('closeCompose', this.closeCompose);
+	},
+	destroyed() {
+		eventBus.$off('closeCompose', this.closeCompose);
 	},
 	components: {
 		emailSideMenu,

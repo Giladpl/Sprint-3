@@ -5,7 +5,7 @@ export default {
             <section class="email-compose">
               <div>New Message</div>
             <form>
-							<figure @click="closeCompose" class="close-compose-btn">X</figure>
+				<figure @click="closeCompose" class="close-compose-btn">X</figure>
                 <label for="send-to">To:</label>
                 <input v-model="newMail.to" type="text" id="send-to">
                 <label for="mail-subject">Subject:</label> 
