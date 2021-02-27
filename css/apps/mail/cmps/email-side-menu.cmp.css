@@ -17,16 +17,37 @@
 	list-style: none;
 }
 
-.progress-bar-container{
+.progress-bar-container {
 	width: 150px;
-	height: 20px;
+	height: 35px;
 	text-align: center;
 	font-weight: 600;
-	border: 1px solid black;
+	border: 2px solid black;
+	border-top: 2px solid gray;
+	border-left: 2px solid gray;
 }
 
-.progress-bar{
-	background-color: rgb(31, 28, 219);
+.progress-bar {
+	background-color: #0077b6;
 	max-width: 150px;
+	height: 31px;
 	color: rgb(214, 205, 205);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media (max-width: 1000px) {
+	.email-side-display {
+		background-color: rgb(245, 245, 245);
+		border: 1px solid black;
+	}
+
+	.btn-side-menu {
+		border: none;
+	}
+
+	.progress-bar-container {
+		border: none;
+	}
 }
