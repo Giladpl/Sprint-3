@@ -4,7 +4,7 @@ export default {
       <div class="home-container">
             <router-link :to="'/keep'">Keep</router-link> |
             <router-link :to="'/mail'">Mail</router-link> |
-            <router-link :to="'/book'">book</router-link>
+            <router-link :to="'/book'">Book</router-link>
         </div>
       </section>
   `,
