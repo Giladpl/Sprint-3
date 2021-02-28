@@ -11,7 +11,9 @@ export default {
 					<!-- <div class="main-screen" @click="toggleScreen"></div> -->
 					<div hidden class="burger-menu" @click="openMenu">&#x2630;</div>
 					<email-filter @filtered="setFilter" />
+					<keep-alive>
 					<email-side-menu ref="sideMenu" v-if="sideMenu" class="email-side-display" @onInbox="updateInbox" @onSent="updateSent" @openCompose="onCompose"/>
+					</keep-alive>
 					<email-list @deleteEmail="deleteEmail" @emailRead="changeToRead" :emails="emailsToShow"/>
 					<email-compose v-if="isCompose" @newMail="sendNewMail"/>
         </section>
